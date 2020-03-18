@@ -1,3 +1,2 @@
 # catalog
-Course catalog example
-Currently in phase one
+Course catalog example (phase one)
