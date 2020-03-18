@@ -1,0 +1,2 @@
+# catalog
+Course catalog example
