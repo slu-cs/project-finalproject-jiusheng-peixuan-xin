@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'courses'}); -%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const id of courseIDs) { -%>
+              <a href="/courses/<%= id -%>" class="nav-item nav-link <%= id === course.id ? 'active bg-dark' : 'inactive' -%>"><%= id -%></a>
+            <%_ } -%>
+          </nav>
+        </div>
+        <div class="col">
+          <main class="p-3">
+            <h2><%= course.title -%></h2>
+            <p><%= course.description -%></p>
+            <%_ if (course.prereqs.length > 0) { -%>
+              <p>Prereqs:</p>
+              <ul>
+                <%_ for (const prereq of course.prereqs) { -%>
+                  <li><a href="/courses/<%= prereq -%>"><%= prereq -%></a></li>
+                <%_ } -%>
+              </ul>
+            <%_ } -%>
+          </main>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

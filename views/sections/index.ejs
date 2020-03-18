@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'sections'}); -%>
+    <main class="p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="border-0"><a href="/sections" class="btn <%= order === 'course' ? 'btn-dark' : 'btn-primary' -%>">Course</a></th>
+            <th class="border-0"><a href="/sections?sort=day" class="btn <%= order === 'day' ? 'btn-dark' : 'btn-primary' -%>">Day</a></th>
+            <th class="border-0"><a href="/sections?sort=time" class="btn <%= order === 'time' ? 'btn-dark' : 'btn-primary' -%>">Time</a></th>
+            <th class="border-0"><a href="/sections?sort=instructor" class="btn <%= order === 'instructor' ? 'btn-dark' : 'btn-primary' -%>">Instructor</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%_ for (const section of sections) { -%>
+            <tr>
+              <td><a href="/courses/<%= section.course -%>"><%= section.course -%></a></td>
+              <td><%= section.day -%></td>
+              <td><%= section.time12 -%></td>
+              <td><%= section.instructor -%></td>
+            </tr>
+          <%_ } -%>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
