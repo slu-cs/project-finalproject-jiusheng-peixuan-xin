@@ -1,7 +1,14 @@
 <header class="navbar navbar-expand navbar-dark bg-dark">
   <h1 class="navbar-brand">CATALOG</h1>
   <nav class="navbar-nav ml-3">
-    <a href="/courses" class="nav-item nav-link <%= active === 'courses' ? 'active' : 'inactive' -%>">Courses</a>
-    <a href="/sections" class="nav-item nav-link <%= active === 'sections' ? 'active' : 'inactive' -%>">Sections</a>
+    <a href="/courses" class="nav-item nav-link <%= (active === 'courses') ? 'active' : 'inactive' -%>">Courses</a>
+    <a href="/sections" class="nav-item nav-link <%= (active === 'sections') ? 'active' : 'inactive' -%>">Sections</a>
+  </nav>
+  <nav class="navbar-nav ml-auto">
+    <%_ if (admin) { -%>
+      <a href="/logout" class="nav-item nav-link">Logout</a>
+    <%_ } else { -%>
+      <a href="/login" class="nav-item nav-link">Login</a>
+    <%_ } -%>
   </nav>
 </header>

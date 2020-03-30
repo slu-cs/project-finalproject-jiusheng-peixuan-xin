@@ -1,0 +1,12 @@
+<form id="update" class="form">
+  <input type="text" name="title" placeholder="Title" value="<%= course.title -%>" class="form-control form-control-lg font-weight-bold mb-1">
+  <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"><%= course.description -%></textarea>
+  <select multiple name="prereqs" size="<%= courseIDs.length -%>" class="form-control w-auto mb-1">
+    <%_ for (const id of courseIDs) { -%>
+      <%_ const status = course.prereqs.includes(id) ? 'selected' : (id < course.id) ? 'unselected' : 'disabled'; -%>
+      <option <%= status -%> value="<%= id -%>">Prereq: <%= id -%></option>
+    <%_ } -%>
+  </select>
+  <button class="btn btn-primary">Save</button>
+  <button id="delete" class="btn btn-primary">Delete</button>
+</form>

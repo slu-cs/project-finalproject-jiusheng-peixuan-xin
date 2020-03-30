@@ -23,3 +23,24 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
+
+// POST /courses (with the new course in the request body)
+module.exports.create = function(request, response, next) {
+  Course.create(request.body)
+    .then(course => response.status(201).send(course.id))
+    .catch(error => next(error));
+};
+
+// DELETE /courses/:id
+module.exports.delete = function(request, response, next) {
+  Course.findByIdAndDelete(request.params.id)
+    .then(course => course ? response.status(200).end() : next())
+    .catch(error => next(error));
+};
+
+// PUT /courses/:id (with the changes in the request body)
+module.exports.update = function(request, response, next) {
+  Course.findByIdAndUpdate(request.params.id, request.body)
+    .then(course => course ? response.status(200).end() : next())
+    .catch(error => next(error));
+};

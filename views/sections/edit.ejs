@@ -1,0 +1,11 @@
+<%_ for (const section of sections) { -%>
+  <form id="<%= section.id -%>" class="form-inline">
+    <input type="text" name="course" value="<%= section.course -%>" class="form-control form-control-sm m-1">
+    <input type="text" name="day" value="<%= section.day -%>" class="form-control form-control-sm m-1">
+    <input type="text" name="time" value="<%= section.time12 -%>" class="form-control form-control-sm m-1">
+    <input type="text" name="instructor" value="<%= section.instructor -%>" class="form-control form-control-sm m-1">
+    <button class="update btn btn-sm btn-primary m-1">Save</button>
+    <button class="delete btn btn-sm btn-primary m-1">Delete</button>
+  </form>
+<%_ } -%>
+<button id="insert" class="btn btn-sm btn-primary m-1">New section</button>
