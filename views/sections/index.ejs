@@ -5,7 +5,7 @@
     <%- include('../navbar', {active: 'sections'}); -%>
     <main class="p-3">
       <%_ if (admin) { -%>
-        <%- include('./edit', {sections: sections}); -%>
+        <%- include('./edit', {sections: sections, courseIDs: courseIDs, days: days}); -%>
       <%_ } else { -%>
         <%- include('./browse', {sections: sections, order: order}); -%>
       <%_ } -%>

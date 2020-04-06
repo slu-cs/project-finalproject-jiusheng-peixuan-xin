@@ -1,6 +1,11 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 
+  // Highlight changes in form inputs
+  $(document).on('input', '.form-control', function(event) {
+    $(this).addClass('bg-dark text-white');
+  });
+
   // Create a course
   $('#create').on('submit', function(event) {
     const form = $(this);
@@ -15,14 +20,18 @@
     const form = $(this);
     event.preventDefault();
     $.ajax({method: 'put', url: '/courses/<%= course.id -%>', data: form.serialize()})
+      .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
       .fail(error => alert(error.responseText));
   });
 
   // Delete a course
   $('#delete').on('click', function(event) {
     event.preventDefault();
-		$.ajax({method: 'delete', url: '/courses/<%= course.id -%>'})
-			.done(() => window.location.replace('/courses'))
-      .fail(error => alert(error.responseText));
+    if (confirm('Delete all traces of this course from the catalog?')) {
+      $.ajax({method: 'delete', url: '/courses/<%= course.id -%>'})
+        .done(() => window.location.replace('/courses'))
+        .fail(error => alert(error.responseText));
+    }
   });
+
 </script>

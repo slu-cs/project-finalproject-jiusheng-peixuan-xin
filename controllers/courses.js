@@ -40,7 +40,9 @@ module.exports.delete = function(request, response, next) {
 
 // PUT /courses/:id (with the changes in the request body)
 module.exports.update = function(request, response, next) {
-  Course.findByIdAndUpdate(request.params.id, request.body)
+  request.body.prereqs = request.body.prereqs || []; // Replace undefined with [] to remove all prereqs
+  
+  Course.findByIdAndUpdate(request.params.id, request.body, {runValidators: true})
     .then(course => course ? response.status(200).end() : next())
     .catch(error => next(error));
 };

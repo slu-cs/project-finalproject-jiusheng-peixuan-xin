@@ -1,13 +1,28 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 
+  // Highlight changes in form inputs
+  $(document).on('input', '.form-control', function(event) {
+    $(this).addClass('bg-dark text-white');
+  });
+
   // Insert a form
   $('#insert').on('click', function(event) {
 		$(this).before($(`
       <form class="form-inline">
-        <input type="text" name="course" class="form-control form-control-sm m-1">
-        <input type="text" name="day" class="form-control form-control-sm m-1">
-        <input type="text" name="time" class="form-control form-control-sm m-1">
+        <select name="course" class="form-control form-control-sm m-1">
+          <option selected disabled hidden value=""></option>
+          <%_ for (const course of courseIDs) { -%>
+            <option value="<%= course -%>"><%= course -%></option>
+          <%_ } -%>
+        </select>
+        <select name="day" class="form-control form-control-sm m-1">
+          <option selected disabled hidden value=""></option>
+          <%_ for (const day of days) { -%>
+            <option value="<%= day -%>"><%= day -%></option>
+          <%_ } -%>
+        </select>
+        <input type="time" name="time" class="form-control form-control-sm m-1">
         <input type="text" name="instructor" class="form-control form-control-sm m-1">
         <button class="create btn btn-sm btn-primary m-1">Save</button>
         <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
@@ -30,6 +45,7 @@
         form.attr('id', id);
         form.find('.create').removeClass('create').addClass('update');
         form.find('.uninsert').removeClass('uninsert').addClass('delete');
+        form.find('.form-control').removeClass('bg-dark text-white');
       })
       .fail(error => alert(error.responseText));
 	});
@@ -39,6 +55,7 @@
     const form = $(this).closest('form');
     event.preventDefault();
     $.ajax({method: 'put', url: `/sections/${form.attr('id')}`, data: form.serialize()})
+      .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
       .fail(error => alert(error.responseText));
   });
 

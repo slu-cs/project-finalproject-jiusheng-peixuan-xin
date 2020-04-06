@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Section = new mongoose.Schema({
-  course: String,
-  day: String,
-  time: Date,
-  instructor: String
+ course: {type: String, required: true, match: /CS\d\d\d/},
+  day: {type: String, required: true, enum: ['M/W', 'M/W/F', 'T/Th', 'W/F']},
+  time: {type: Date, required: true},
+  instructor: {type: String, required: true, maxlength: 25, trim: true}
 });
 
 // Convert incoming time strings to Date objects
