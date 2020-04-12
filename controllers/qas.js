@@ -2,7 +2,7 @@ const Qa = require('../models/qa');
 
 // GET /counties
 module.exports.index = function(request, response, next) {
-  County.distinct('_id')
+  Qa.distinct('_id')
     .then(countyId => response.redirect(`/qas/${qaId[0]}`))
     .catch(error => next(error));
  };
