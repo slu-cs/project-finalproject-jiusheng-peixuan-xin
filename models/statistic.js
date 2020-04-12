@@ -10,8 +10,4 @@ const Statistic = new mongoose.Schema({
   day: [String]
 });
 
-Statistic.path('day').set(function(day) {
-  return new Date(`${day}`);
-});
-
 module.exports = mongoose.model('Statistic', Statistic);
