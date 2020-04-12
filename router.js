@@ -23,6 +23,7 @@ router.get('/counties/:id', counties.retrieve);
 
 // Handle section requests
 router.get('/qas', qas.index);
+router.get('/qas/:id', qas.retrieve);
 
 // Export the router
 module.exports = router;
