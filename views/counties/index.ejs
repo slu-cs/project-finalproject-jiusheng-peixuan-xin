@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-auto p-3 border-right">
           <nav class="nav nav-pills flex-column">
-            <%_ for (const id of countyID) { -%>
+            <%_ for (const id of countyIDs) { -%>
               <%_ const status = (id === county.id) ? 'active bg-dark' : 'inactive'; -%>
               <a href="/counties/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
             <%_ } -%>
