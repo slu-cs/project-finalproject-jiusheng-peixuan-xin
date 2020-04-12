@@ -16,7 +16,7 @@ module.exports.retrieve = function(request, response, next) {
 
   Promise.all(queries).then(function([qa, qaId]) {
     if (county) {
-      response.render(qas/index', {qa: qa, qaId: qaId});
+      response.render('qas/index', {qa: qa, qaId: qaId});
     } else {
       next();
     }
