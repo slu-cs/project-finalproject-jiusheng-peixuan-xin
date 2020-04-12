@@ -15,7 +15,7 @@ module.exports.retrieve = function(request, response, next) {
   ];
 
   Promise.all(queries).then(function([statistic, statisticId]) {
-    if (county) {
+    if (statistic) {
       response.render('statistics/index', {statistic: statistic, statisticId: statisticId});
     } else {
       next();
