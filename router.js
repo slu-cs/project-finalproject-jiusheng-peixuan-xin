@@ -1,7 +1,7 @@
 // Router for content requests.
 const express = require('express');
-const county = require('./controllers/counties');
-const qa = require('./controllers/qas');
+const counties = require('./controllers/counties');
+const qas = require('./controllers/qas');
 const statistics = require('./controllers/statistics');
 
 // Create the router
