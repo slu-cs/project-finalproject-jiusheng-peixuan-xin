@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const County = new mongoose.Schema({
-  _id: String,
   name: String
 });
 

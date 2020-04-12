@@ -10,32 +10,33 @@ connect();
 
 /*
 const County = new mongoose.Schema({
-  name: String,
-  statistics:String
+  name: String
 });
 */
 // Model a collection of courses
-//Statistics are all made up by Jiusheng
+
 const counties = [
-  new County({_id: 'SL', name: 'St.Lawrence'}),
-  new County({_id:'LEW', name: 'Lewis'}),
-  new County({_id:'NY', name: 'New York'})
+  new County({name: 'St.Lawrence'}),
+  new County({name: 'Lewis'}),
+  new County({name: 'New York'})
 ];
 
 /*
-const Statistics = new mongoose.Schema({
+const Statistic = new mongoose.Schema({
   _id:String,
+  county: String,
   confirmed:Number,
   death:Number,
   day:Date
 });
 */
+
 // Model a collection of sections
-//Statistics are all made up by Jiusheng
+
 const statistics = [
-  new Statistics({_id:'s_SL',confirmed:0,death:0,day:new Date("2020-04-01")}),
-  new Statistics({_id:'s_LE',confirmed:6,death:1,day:new Date("2020-04-01")}),
-  new Statistics({_id:'s_NY',confirmed:1000,death:10,day:new Date("2020-04-01")})
+  new Statistics({_id:'s_SL',county: counties[0].name, confirmed:0, death:0, day:new Date("2020-04-01")}),
+  new Statistics({_id:'s_LE',county: counties[1].name, confirmed:6, death:1, day:new Date("2020-04-01")}),
+  new Statistics({_id:'s_NY',county: counties[2].name, confirmed:1000, death:10, day:new Date("2020-04-01")})
 ];
 
 /*
