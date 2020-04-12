@@ -23,7 +23,7 @@ app.use(function(request, response, next) {
 
 // Redirect from the home page
 app.get('/', function(request, response) {
-  response.redirect('/counties');
+  response.redirect('/statistics');
 });
 
 // Route content requests

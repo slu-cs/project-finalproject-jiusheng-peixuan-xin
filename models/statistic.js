@@ -7,7 +7,7 @@ const Statistic = new mongoose.Schema({
   county: String,
   confirmed:Number,
   death:Number,
-  day:Date
+  day:String
 });
 
 Statistic.path('day').set(function(day) {
