@@ -2,15 +2,23 @@
 <html>
   <%- include('../head'); -%>
   <body>
-    <%- include('../navbar', {active: 'sections'}); -%>
-    <main class="p-3">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class=="border-0"><a href="/statistics" class="btn <%= (order === 'course') ? 'btn-dark' : 'btn-primary' -%>">County</a></th>
-            <th class=="border-0"><a href="/statistics?sort=day" class="btn <%= (order === 'day') ? 'btn-dark' : 'btn-primary' -%>">Day</a></th>
-          </tr>
-        </thead>
-    </main>
+    <%- include('../navbar', {active: 'qas'}); -%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const id of qaID) { -%>
+              <%_ const status = (id === qa.id) ? 'active bg-dark' : 'inactive'; -%>
+              <a href="/counties/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
+            <%_ } -%>
+          </nav>
+        </div>
+        <div class="col">
+          <main class="p-3">
+            <h2><%= qa.question -%></h2>
+          </main>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
