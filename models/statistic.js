@@ -9,7 +9,7 @@ const Statistic = new mongoose.Schema({
   day:Date
 });
 
-Statisti.path('day').set(function(day) {
+Statistic.path('day').set(function(day) {
   return new Date(`${day}`);
 });
 
