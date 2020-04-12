@@ -2,10 +2,11 @@
 const mongoose = require('mongoose');
 
 // Define the schema
-const QA = new mongoose.Schema({
+const Qa = new mongoose.Schema({
+  _id: String,
   question:String,
   answer:String
 });
 
 // Export the model
-module.exports = mongoose.model('QA', QA);
+module.exports = mongoose.model('Qa', Qa);

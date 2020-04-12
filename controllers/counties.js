@@ -22,3 +22,13 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
+
+/*
+module.exports.index = function(request, response) {
+  response.send('GET /counties');
+};
+
+module.exports.retrieve = function(request, response) {
+  response.send(`GET /counties/${request.params.id}`);
+};
+*/

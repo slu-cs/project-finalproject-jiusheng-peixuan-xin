@@ -1,7 +1,7 @@
 // Router for content requests.
 const express = require('express');
-const county = require('./controllers/county');
-const qa = require('./controllers/QA');
+const county = require('./controllers/counties');
+const qa = require('./controllers/qas');
 const statistics = require('./controllers/statistics');
 
 // Create the router
@@ -17,12 +17,12 @@ const authorize = function(request, response, next) {
 };
 */
 // Handle course requests
-router.get('/county', county.index);
-router.get('/county/:id', county.retrieve);
+router.get('/counties', counties.index);
+router.get('/counties/:id', counties.retrieve);
 
 
 // Handle section requests
-router.get('/qa', statistics.index);
-router.get('/qa/:id', statistics.retrieve);
+router.get('/qas', qas.index);
+
 // Export the router
 module.exports = router;

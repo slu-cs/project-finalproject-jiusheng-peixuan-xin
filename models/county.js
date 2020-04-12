@@ -3,11 +3,9 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const County = new mongoose.Schema({
-  name: String,
-  statistics:String
+  _id: String,
+  name: String
 });
-
-
 
 
 module.exports = mongoose.model('County', County);
