@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'sections'}); -%>
+    <main class="p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class=="border-0"><a href="/statistics" class="btn <%= (order === 'course') ? 'btn-dark' : 'btn-primary' -%>">County</a></th>
+            <th class=="border-0"><a href="/statistics?sort=day" class="btn <%= (order === 'day') ? 'btn-dark' : 'btn-primary' -%>">Day</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%_ for (const county of counties) { -%>
+              <tr>
+
+          }
+    </main>
+    <%_ if (admin) { -%>
+      <%- include('./scripts'); -%>
+    <%_ } -%>
+  </body>
+</html>
