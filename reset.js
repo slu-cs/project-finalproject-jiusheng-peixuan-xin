@@ -24,17 +24,17 @@ const counties = [
 const Statistic = new mongoose.Schema({
   _id:String,
   county: String,
-  confirmed:Number,
-  death:Number,
-  day:Date
+  confirmed: [Number],
+  death: [Number],
+  day: [String]
 });
 */
 
 // Model a collection of sections
 const statistics = [
-  new Statistics({_id:'SL',county: counties[0].name, confirmed:0, death:0, day:"April 1"}),
-  new Statistics({_id:'LE',county: counties[1].name, confirmed:6, death:1, day:"April 1"}),
-  new Statistics({_id:'NY',county: counties[2].name, confirmed:1000, death:10, day:"April 1"})
+  new Statistics({_id:'SL',county: counties[0].name, confirmed:[0], death:[0], day:["April 1"]}),
+  new Statistics({_id:'LE',county: counties[1].name, confirmed:[1], death:[0], day:["April 1"]}),
+  new Statistics({_id:'NY',county: counties[2].name, confirmed:[2], death:[0], day:["April 1"]})
 ];
 
 /*

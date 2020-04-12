@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const Statistic = new mongoose.Schema({
   _id:String,
   county: String,
-  confirmed:Number,
-  death:Number,
-  day:String
+  confirmed: [Number],
+  death: [Number],
+  day: [String]
 });
 
 Statistic.path('day').set(function(day) {
