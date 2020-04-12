@@ -14,7 +14,6 @@ const County = new mongoose.Schema({
 });
 */
 // Model a collection of courses
-
 const counties = [
   new County({name: 'St.Lawrence'}),
   new County({name: 'Lewis'}),
@@ -32,11 +31,10 @@ const Statistic = new mongoose.Schema({
 */
 
 // Model a collection of sections
-
 const statistics = [
-  new Statistics({_id:'s_SL',county: counties[0].name, confirmed:0, death:0, day:new Date("2020-04-01")}),
-  new Statistics({_id:'s_LE',county: counties[1].name, confirmed:6, death:1, day:new Date("2020-04-01")}),
-  new Statistics({_id:'s_NY',county: counties[2].name, confirmed:1000, death:10, day:new Date("2020-04-01")})
+  new Statistics({_id:'SL',county: counties[0].name, confirmed:0, death:0, day:new Date("2020-04-01")}),
+  new Statistics({_id:'LE',county: counties[1].name, confirmed:6, death:1, day:new Date("2020-04-01")}),
+  new Statistics({_id:'NY',county: counties[2].name, confirmed:1000, death:10, day:new Date("2020-04-01")})
 ];
 
 /*
