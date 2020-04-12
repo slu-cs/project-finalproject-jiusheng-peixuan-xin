@@ -47,8 +47,8 @@ const Qa = new mongoose.Schema({
 */
 const qas = [
   new Qa({_id:'q1', question: 'Q1', answer: 'A1'}),
-  new Qa({_id:'q1', question: 'Q1', answer: 'A1'}),
-  new Qa({_id:'q1', question: 'Q1', answer: 'A1'})
+  new Qa({_id:'q2', question: 'Q2', answer: 'A2'}),
+  new Qa({_id:'q3', question: 'Q3', answer: 'A3'})
 ];
 
 // Reset the database
