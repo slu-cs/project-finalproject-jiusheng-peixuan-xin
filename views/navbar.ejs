@@ -1,14 +1,7 @@
 <header class="navbar navbar-expand navbar-dark bg-dark">
-  <h1 class="navbar-brand">CATALOG</h1>
+  <h1 class="navbar-brand">COVID-19 Dashboard</h1>
   <nav class="navbar-nav ml-3">
-    <a href="/courses" class="nav-item nav-link <%= (active === 'courses') ? 'active' : 'inactive' -%>">Courses</a>
-    <a href="/sections" class="nav-item nav-link <%= (active === 'sections') ? 'active' : 'inactive' -%>">Sections</a>
-  </nav>
-  <nav class="navbar-nav ml-auto">
-    <%_ if (admin) { -%>
-      <a href="/logout" class="nav-item nav-link">Logout</a>
-    <%_ } else { -%>
-      <a href="/login" class="nav-item nav-link">Login</a>
-    <%_ } -%>
+    <a href="/county" class="nav-item nav-link <%= (active === 'county') ? 'active' : 'inactive' -%>">Counties</a>
+    <a href="/QA" class="nav-item nav-link <%= (active === 'QA') ? 'active' : 'inactive' -%>">Q&A</a>
   </nav>
 </header>
