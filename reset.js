@@ -1,7 +1,8 @@
 // Script for setting up a database.
 const mongoose = require('mongoose');
 const connect = require('./db');
-const  County= require('./models/county');
+const County= require('./models/county');
+const Qa = require('./models/qa');
 const Statistics = require('./models/statistics');
 
 // Connect to the database
