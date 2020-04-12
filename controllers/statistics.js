@@ -1,7 +1,11 @@
-module.exports.index = function(request, response) {
-  response.send('GET /statistics');
-};
+const Statistics = require('../models/statistics');
 
-module.exports.retrieve = function(request, response) {
-  response.send(`GET /statistics/${request.params.id}`);
+// GET /statistics?sort=
+
+module.exports.index = function(request, response, next) {
+  const order = request.query.sort || 'county';
+
+  Statistics.find().sort(order)
+    .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
+    .catch(error => next(error));
 };

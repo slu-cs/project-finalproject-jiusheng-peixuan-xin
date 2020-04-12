@@ -1,10 +1,13 @@
 const express = require('express');
 const router = require('./router');
+const connect=require('./db');
 
+connect();
 
 // Create the server
 const app = express();
-
+app.set('view engine','ejs');
+app.set('views','./views');
 // Ignore icon requests
 app.get('/favicon.ico', function(request, response) {
   response.status(204).end();
