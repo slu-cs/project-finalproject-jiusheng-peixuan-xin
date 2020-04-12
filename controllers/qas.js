@@ -1,4 +1,4 @@
-const QA = require('../models/QA');
+const Qa = require('../models/qa');
 
 
 module.exports.index = function(request, response) {
