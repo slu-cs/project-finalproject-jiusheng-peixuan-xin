@@ -25,8 +25,8 @@ router.get('/counties/:id', counties.retrieve);
 router.get('/qas', qas.index);
 router.get('/qas/:id', qas.retrieve);
 
-router.get('/statistics', qas.index);
-router.get('/statistics/:id', qas.retrieve);
+router.get('/statistics', statistics.index);
+router.get('/statistics/:id', statistics.retrieve);
 
 // Export the router
 module.exports = router;
