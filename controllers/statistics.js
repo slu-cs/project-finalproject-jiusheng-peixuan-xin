@@ -5,6 +5,7 @@ module.exports.index = function(request, response, next) {
   Statistic.distinct('_id')
     .then(statisticId => response.redirect(`/statistics/${statisticId[0]}`))
     .catch(error => next(error));
+
  };
 
 // GET /counties/:id
