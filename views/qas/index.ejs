@@ -7,8 +7,8 @@
     <div class="col">
       <main class="p-3">
         <%_ for (const id of qaId) { -%>
-          <h2><%= qa.question -%></h2>
-          <p><%= qa.answer -%></p>
+          <h2><%= qa[id].question -%></h2>
+          <p><%= qa[id].answer -%></p>
           <%_ } -%>
         </main>
       </div>
