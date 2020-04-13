@@ -67,9 +67,9 @@ const getStatistic = function(arr, info) {
 // Asynchronous line-by-line input
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
-  if (!Object.is(info[0], 'date') && Object.is(info[2], 'New York')) {
+  if (Object.is(info[2], 'New York')) {
     console.log(info[4]);
-    getCounty(counties, info[1]);
+    // getCounty(counties, info[1]);
     getStatistic(statistics, info);
   }
 });
@@ -78,7 +78,6 @@ file.on('line', function(line){
 file.on('close', function() {
   process.exit(0);
 });
-
 
 /*
 const Qa = new mongoose.Schema({
@@ -97,5 +96,6 @@ mongoose.connection.dropDatabase()
   .then(() => Promise.all(counties.map(county => county.save())))
   .then(() => Promise.all(statistics.map(statistic => statistic.save())))
   .then(() => Promise.all(qas.map(qa => qa.save())))
+  .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
