@@ -1,13 +1,13 @@
 const Qa = require('../models/qa');
 
-// GET /counties
+// GET /qas
 module.exports.index = function(request, response, next) {
   Qa.distinct('_id')
     .then(qaId => response.redirect(`/qas/${qaId[0]}`))
     .catch(error => next(error));
  };
 
-// GET /counties/:id
+// GET /qas/:id
 module.exports.retrieve = function(request, response, next) {
   const queries = [
     Qa.findById(request.params.id),

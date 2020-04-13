@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Qa = new mongoose.Schema({
-  _id: String,
   question:String,
   answer:String
 });

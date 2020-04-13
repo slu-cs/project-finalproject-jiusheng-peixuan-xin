@@ -68,15 +68,14 @@ const getStatistic = function(arr, info) {
 // qa collection
 /*
 const Qa = new mongoose.Schema({
-  _id: String,
   question:String,
   answer:String
 });
 */
 const qas = [
-  new Qa({_id:'q1', question: 'Q1', answer: 'A1'}),
-  new Qa({_id:'q2', question: 'Q2', answer: 'A2'}),
-  new Qa({_id:'q3', question: 'Q3', answer: 'A3'})
+  new Qa({question: 'Q1', answer: 'A1'}),
+  new Qa({question: 'Q2', answer: 'A2'}),
+  new Qa({question: 'Q3', answer: 'A3'})
 ];
 
 // Asynchronous line-by-line input
