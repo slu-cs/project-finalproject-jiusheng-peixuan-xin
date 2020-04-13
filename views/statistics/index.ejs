@@ -15,30 +15,25 @@
         </div>
         <div class="col">
           <main class="p-3">
+            <h2><%= statistic.county -%></h2>
             <table class="table">
               <thead>
                 <tr>
-                  <th class="border-0">County</th>
+                  <th class="border-0">Date</th>
                   <th class="border-0">Confirmed</th>
                   <th class="border-0">Death</th>
-                  <th class="border-0">Date</th>
                 </tr>
               </thead>
               <tbody>
                 <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
                   <tr>
-                    <td><%= statistic.county -%></td>
+                    <td><%= statistic.day[i] -%></td>
                     <td><%= statistic.confirmed[i] -%></td>
                     <td><%= statistic.death[i] -%></td>
-                    <td><%= statistic.day[i] -%></td>
                   </tr>
                 <%_ } -%>
               </tbody>
             </table>
-            <h2><%= statistic.county -%></h2>
-            <p>Confirmed: <%= statistic.confirmed[0] -%></p>
-            <p>Death: <%= statistic.death[0] -%></p>
-            <p>Date: <%= statistic.day[0] -%></p>
           </main>
         </div>
       </div>
