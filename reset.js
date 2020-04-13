@@ -8,6 +8,8 @@ const Statistic = require('./models/statistic');
 // Connect to the database
 connect();
 
+// GOT MERGE PROBLEM
+
 const readline = require('readline');
 const fs = require('fs');
 // File configuration
