@@ -6,10 +6,10 @@
   <div class="container-fluid">
     <div class="col">
       <main class="p-3">
-        <%_ for (let i = 0; i < qas.length; i++) { -%>
-          <h2><%= qa[i].question -%></h2>
-          <p><%= qa[i].answer -%></p>
-          <%_ } -%>
+        <%_ for (const id of qaId) { -%>
+          <h2><a href="/qas/<%= id -%>"<%= q.question -%></a></h2>
+          <p><p><%= q.answer -%></p></p>
+        <%_ } -%>
         </main>
       </div>
     </div>
