@@ -7,9 +7,10 @@
     <div class="col">
       <main class="p-3">
         <%_ for (const id of qaId) { -%>
-          <h2><a href="/qas/<%= id -%>"<%= q.question -%></a></h2>
-          <p><p><%= q.answer -%></p></p>
+          <h2><a href="/qas/<%= id -%>"<%= id -%></a>qa.question</h2>
+
         <%_ } -%>
+        <p><p><%= qa.answer -%></p></p>
         </main>
       </div>
     </div>
