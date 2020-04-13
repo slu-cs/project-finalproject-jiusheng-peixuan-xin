@@ -64,21 +64,7 @@ const getStatistic = function(arr, info) {
   return arr;
 };
 
-// Asynchronous line-by-line input
-file.on('line', function(line){
-  const info = line.split(','); // date, county, state, fips, cases, deaths
-  if (Object.is(info[2], 'New York')) {
-    getCounty(counties, info[1]);
-    getStatistic(statistics, info);
-    console.log(statistics[0].county);
-  }
-});
-
-// End the program when the file closes
-file.on('close', function() {
-  process.exit(0);
-});
-
+// qa collection
 /*
 const Qa = new mongoose.Schema({
   _id: String,
@@ -91,6 +77,21 @@ const qas = [
   new Qa({_id:'q2', question: 'Q2', answer: 'A2'}),
   new Qa({_id:'q3', question: 'Q3', answer: 'A3'})
 ];
+
+// Asynchronous line-by-line input
+file.on('line', function(line){
+  const info = line.split(','); // date, county, state, fips, cases, deaths
+  if (Object.is(info[2], 'New York')) {
+    getCounty(counties, info[1]);
+    getStatistic(statistics, info);
+  }
+});
+
+// End the program when the file closes
+file.on('close', function() {
+  console.log('done')
+  process.exit(0);
+});
 
 mongoose.connection.dropDatabase()
   .then(() => Promise.all(counties.map(county => county.save())))
