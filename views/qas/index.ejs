@@ -1,35 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../head'); -%>
-  <body>
-    <%- include('../navbar', {active: 'qas'}); -%>
-    <div class="container-fluid">
-      <div class="row">
-        <!--<div class="col-auto p-3 border-right">
-          <nav class="nav nav-pills flex-column">
-            <%_ for (const id of qaId) { -%>
-              <%_ const status = (id === qa.id) ? 'active bg-dark' : 'inactive'; -%>
-              <a href="/qas/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
-            <%_ } -%>
-          </nav>
-        </div>-->
-        <div class="col">
-          <main class="p-3">
-            <!--<h2><%= qa.question -%></h2>
-            <p><%= qa.answer -%></p>
-          -->
-
-            <tbody>
-              <%_ for (let i = 0; i < qas.length; i++) { -%>
-                <tr>
-                  <h2><%= qas[i].question -%></h2>
-                  <p><%= qas[i].answer -%></p>
-                </tr>
-              <%_ } -%>
-            </tbody>
-          </main>
-        </div>
+<%- include('../head'); -%>
+<body>
+  <%- include('../navbar', {active: 'qas'}); -%>
+  <div class="container-fluid">
+    <div class="col">
+      <main class="p-3">
+        <%_ for (const id of qaId) { -%>
+          <%_ const status = (id === qa.id) ? 'active bg-dark' : 'inactive'; -%>
+          <h2><%= qa.question -%></h2>
+          <p><%= qa.answer -%</p>
+          <%_ } -%>
+        </main>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>
