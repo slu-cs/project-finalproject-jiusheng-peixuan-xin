@@ -68,9 +68,9 @@ const getStatistic = function(arr, info) {
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
   if (Object.is(info[2], 'New York')) {
-    console.log(info[4]);
-    // getCounty(counties, info[1]);
+    getCounty(counties, info[1]);
     getStatistic(statistics, info);
+    console.log(statistics[0].county);
   }
 });
 
