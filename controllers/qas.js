@@ -2,8 +2,9 @@ const Qa = require('../models/qa');
 
 // GET /qas
 module.exports.index = function(request, response, next) {
+  const order = request.query.sort || 'question';
   Qa.find()
-    .then(qas => response.render('qas/index', {qas: qas, order: Default}))
+    .then(qas => response.render('qas/index', {qas: qas, order: order}))
     .catch(error => next(erro));
  };
 
