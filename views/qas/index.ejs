@@ -9,11 +9,12 @@
         <nav class="nav nav-pills flex-column">
           <%_ for (const id of qaId) { -%>
             <%_ const status = (id === qa.id) ? 'active bg-dark' : 'inactive'; -%>
-            <h2><a href="/qas/<%= id -%>" class="<%= status -%>"><%= question -%></a></h2>
+            <a href="/qas/<%= id -%>" class="<%= status -%>"><%= id -%></a>
           <%_ } -%>
         </nav>
       </div>
       <main class="p-3">
+        <h2><%= qa.question -%></h2>
         <p><%= qa.answer -%></p>
         </main>
       </div>
