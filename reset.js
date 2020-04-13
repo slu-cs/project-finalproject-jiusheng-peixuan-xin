@@ -67,8 +67,7 @@ const getStatistic = function(arr, info) {
 // Asynchronous line-by-line input
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
-
-  if (info[0] != 'date') {
+  if (!Object.is(info[0], 'date')) {
     getCounty(counties, info[1]);
     getStatistic(statistics, info);
   }
