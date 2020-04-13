@@ -5,12 +5,16 @@
   <%- include('../navbar', {active: 'qas'}); -%>
   <div class="container-fluid">
     <div class="col">
+      <div class="col-auto p-3 border-right">
+        <nav class="nav nav-pills flex-column">
+          <%_ for (const id of qaId) { -%>
+            <%_ const status = (id === qa.id) ? 'active bg-dark' : 'inactive'; -%>
+            <h2><a href="/qas/<%= id -%>" class="<%= status -%>"><%= question -%></a></h2>
+          <%_ } -%>
+        </nav>
+      </div>
       <main class="p-3">
-        <%_ for (const id of qaId) { -%>
-          <h2><a href="/qas/<%= id -%>"<%= id -%></a></h2>
-
-        <%_ } -%>
-        <p><p><%= qa.answer -%></p></p>
+        <p><%= qa.answer -%></p>
         </main>
       </div>
     </div>
