@@ -73,9 +73,9 @@ const Qa = new mongoose.Schema({
 });
 */
 const qas = [
-  new Qa({question: 'Q1', answer: 'A1'}),
-  new Qa({question: 'Q2', answer: 'A2'}),
-  new Qa({question: 'Q3', answer: 'A3'})
+  new Qa({question: 'How to protect ourselves from getting infected?', answer: 'Wash your hand, wear facial masks, keep social distance'}),
+  new Qa({question: 'Is there any cases found in canton?', answer: 'Yes there is one case found last month.'}),
+
 ];
 
 // Asynchronous line-by-line input
