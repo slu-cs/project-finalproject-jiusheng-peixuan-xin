@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connect = require('./db');
 const County= require('./models/county');
 const Qa = require('./models/qa');
-const Statistics = require('./models/statistic');
+const Statistic = require('./models/statistic');
 
 // Connect to the database
 connect();
