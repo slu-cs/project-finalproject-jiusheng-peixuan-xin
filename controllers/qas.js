@@ -2,9 +2,9 @@ const Qa = require('../models/qa');
 
 // GET /qas
 module.exports.index = function(request, response, next) {
-  Qa.distinct('_id')
-    .then(qaId => response.redirect(`/qas/${qaId[0]}`))
-    .catch(error => next(error));
+  Qa.find()
+    .then(qas => response.render('qas/index', {qas: qas, order: Default}))
+    .catch(error => next(erro));
  };
 
 // GET /qas/:id
@@ -15,8 +15,8 @@ module.exports.retrieve = function(request, response, next) {
   ];
 
   Promise.all(queries).then(function([qas, qaId]) {
-    if (qas) {
-      response.render('qas/index', {qas: qas, qaId: qaId});
+    if (qa) {
+      response.render('qas/index', {qa: qa, qaId: qaId});
     } else {
       next();
     }
