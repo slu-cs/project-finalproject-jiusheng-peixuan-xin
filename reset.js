@@ -8,18 +8,33 @@ const Statistics = require('./models/statistic');
 // Connect to the database
 connect();
 
+const readline = require('readline');
+const fs = require('fs');
+// File configuration
+const file = readline.createInterface({
+  input: fs.createReadStream('./us-counties.csv')
+});
+
+// county collection
 /*
 const County = new mongoose.Schema({
   name: String
 });
 */
-// Model a collection of courses
-const counties = [
-  new County({name: 'St.Lawrence'}),
-  new County({name: 'Lewis'}),
-  new County({name: 'New York'})
-];
+const counties = [];
 
+const getCounty = function(arr, item) {
+  // prevent duplication
+  for (let r of arr) {
+    if (Object.is(r.name, item)) {
+      return arr;
+    }
+  }
+  arr.push(new County({name: item}));
+  return arr;
+};
+
+// statistic collection
 /*
 const Statistic = new mongoose.Schema({
   _id:String,
@@ -29,13 +44,42 @@ const Statistic = new mongoose.Schema({
   day: [String]
 });
 */
+const statistics = [];
 
-// Model a collection of sections
-const statistics = [
-  new Statistics({_id:'SL',county: counties[0].name, confirmed:[0], death:[0], day:["April 1"]}),
-  new Statistics({_id:'LE',county: counties[1].name, confirmed:[1], death:[0], day:["April 1"]}),
-  new Statistics({_id:'NY',county: counties[2].name, confirmed:[2], death:[0], day:["April 1"]})
-];
+const getStatistic = function(arr, info) {
+  for (let r of arr) {
+    if (Object.is(r._id, info[1])) {
+      r.confirmed.push(info[4]);
+      r.death.push(info[5]);
+      r.day.push(info[0]);
+      return arr;
+    }
+  }
+  arr.push(new Statistic({
+    _id:info[1],
+    county: info[1],
+    confirmed: [info[4]],
+    death: [info[5]],
+    day: [info[0]]}));
+  return arr;
+};
+
+// Asynchronous line-by-line input
+file.on('line', function(line){
+  const info = line.split(','); // date, county, state, fips, cases, deaths
+
+  if (info[0] != 'date') {
+    getCounty(counties, info[1]);
+    getStatistic(statistics, info);
+  }
+});
+
+
+// End the program when the file closes
+file.on('close', function() {
+  process.exit(0);
+});
+
 
 /*
 const Qa = new mongoose.Schema({
