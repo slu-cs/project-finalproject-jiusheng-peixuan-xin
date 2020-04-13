@@ -60,7 +60,8 @@ const getStatistic = function(arr, info) {
     county: info[1],
     confirmed: [info[4]],
     death: [info[5]],
-    day: [info[0]]}));
+    day: [info[0]]})
+  );
   return arr;
 };
 
@@ -89,14 +90,11 @@ file.on('line', function(line){
 
 // End the program when the file closes
 file.on('close', function() {
-  console.log('done')
-  process.exit(0);
+  mongoose.connection.dropDatabase()
+    .then(() => Promise.all(counties.map(county => county.save())))
+    .then(() => Promise.all(statistics.map(statistic => statistic.save())))
+    .then(() => Promise.all(qas.map(qa => qa.save())))
+    .then(() => mongoose.connection.close())
+    .then(() => console.log('Database is ready.'))
+    .catch(error => console.error(error.stack));
 });
-
-mongoose.connection.dropDatabase()
-  .then(() => Promise.all(counties.map(county => county.save())))
-  .then(() => Promise.all(statistics.map(statistic => statistic.save())))
-  .then(() => Promise.all(qas.map(qa => qa.save())))
-  .then(() => mongoose.connection.close())
-  .then(() => console.log('Database is ready.'))
-  .catch(error => console.error(error.stack));
