@@ -20,10 +20,10 @@
           -->
 
             <tbody>
-              <%_ for i in qas { -%>
+              <%_ for (let i = 0; i < qas.length; i++) { -%>
                 <tr>
-                  <h2><%= i.question -%></h2>
-                  <p><%= i.answer -%></p>
+                  <h2><%= qas[i].question -%></h2>
+                  <p><%= qas[i].answer -%></p>
                 </tr>
               <%_ } -%>
             </tbody>
