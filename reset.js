@@ -97,6 +97,5 @@ mongoose.connection.dropDatabase()
   .then(() => Promise.all(counties.map(county => county.save())))
   .then(() => Promise.all(statistics.map(statistic => statistic.save())))
   .then(() => Promise.all(qas.map(qa => qa.save())))
-  .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
