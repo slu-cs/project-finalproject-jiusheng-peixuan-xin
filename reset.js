@@ -68,11 +68,11 @@ const getStatistic = function(arr, info) {
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
   if (!Object.is(info[0], 'date') && Object.is(info[2], 'New York')) {
+    console.log(info[4]);
     getCounty(counties, info[1]);
     getStatistic(statistics, info);
   }
 });
-
 
 // End the program when the file closes
 file.on('close', function() {
@@ -93,7 +93,6 @@ const qas = [
   new Qa({_id:'q3', question: 'Q3', answer: 'A3'})
 ];
 
-// Reset the database
 mongoose.connection.dropDatabase()
   .then(() => Promise.all(counties.map(county => county.save())))
   .then(() => Promise.all(statistics.map(statistic => statistic.save())))
