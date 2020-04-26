@@ -23,3 +23,25 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
+
+//Phase two
+// POST /qas (with the new qa in the request body)
+module.exports.create = function(request, response, next) {
+  Qa.create(request.body)
+    .then(qa => response.status(201).send(qa.id))
+    .catch(error => next(error));
+};
+
+// DELETE /qas/:id
+module.exports.delete = function(request, response, next) {
+  qa.findByIdAndDelete(request.params.id)
+    .then(qa => qa ? response.status(200).end() : next())
+    .catch(error => next(error));
+};
+
+// PUT /qas/:id (with the changes in the request body)
+module.exports.update = function(request, response, next) {
+  qa.findByIdAndUpdate(request.params.id, request.body)
+    .then(qa => qa ? response.status(200).end() : next())
+    .catch(error => next(error));
+};
