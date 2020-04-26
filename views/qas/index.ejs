@@ -17,7 +17,7 @@
             <%_ if (admin) { -%>
               <%- include('./edit', {qa: qa, qaID: qaID}); -%>
             <%_ } else { -%>
-              <%- include('./browse', {qa: qa}); -%>
+              <%- include('./browse', {qas: qas}); -%>
             <%_ } -%>
           </main>
         </div>
