@@ -7,36 +7,33 @@
       <div class="row">
         <div class="col-auto p-3 border-right">
           <nav class="nav nav-pills flex-column">
-            <%_ for (const id of statisticId) { -%>
-              <%_ const status = (id === statistic.id) ? 'active bg-dark' : 'inactive'; -%>
-              <a href="/statistics/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
+            <%_ for (const s of statistic) { -%>
+              <%_ const status = (s.id === statistic.id) ? 'active bg-dark' : 'inactive'; -%>
+              <a href="/statistics/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= s.id -%></a>
             <%_ } -%>
           </nav>
+          <%_ if (admin) { -%>
+          <form id="create" class="form my-1">
+            <input type="text" name="_id" placeholder="CS###" size="1" class="form-control">
+          </form>
+        <%_ } -%>
         </div>
         <div class="col">
           <main class="p-3">
-            <h2><%= statistic.county -%></h2>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="border-0">Date</th>
-                  <th class="border-0">Confirmed</th>
-                  <th class="border-0">Death</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
-                  <tr>
-                    <td><%= statistic.day[i] -%></td>
-                    <td><%= statistic.confirmed[i] -%></td>
-                    <td><%= statistic.death[i] -%></td>
-                  </tr>
-                <%_ } -%>
+            <%_ if (admin) { -%>
+              <%- include('./edit', {course: course, courseIDs: courseIDs}); -%>
+            <%_ } else { -%>
+              <%- include('./browse', {course: course}); -%>
+            <%_ } -%>
+
               </tbody>
             </table>
           </main>
         </div>
       </div>
     </div>
+    <%_ if (admin) { -%>
+      <%- include('./scripts', {course: course}); -%>
+    <%_ } -%>
   </body>
 </html>
