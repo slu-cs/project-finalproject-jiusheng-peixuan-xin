@@ -24,7 +24,6 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
-const Section = require('../models/statistics');
 
 // GET /sections?sort=
 module.exports.index = function(request, response, next) {
