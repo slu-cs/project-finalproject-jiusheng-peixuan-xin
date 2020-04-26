@@ -4,9 +4,6 @@ const Statistic = require('../models/statistic');
   Statistic.distinct('_id')
     .then(statisticId => response.redirect(`/statistics/${statisticId[0]}`))
     .catch(error => next(error));
-
-
-
  };*/
 
  // GET /sections?sort=
@@ -17,11 +14,6 @@ const Statistic = require('../models/statistic');
      .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
      .catch(error => next(error));
  };
-
-
-
-
-
 
 // GET /counties/:id
 module.exports.retrieve = function(request, response, next) {

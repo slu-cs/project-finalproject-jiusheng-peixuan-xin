@@ -8,8 +8,8 @@
         <div class="col-auto p-3 border-right">
           <nav class="nav nav-pills flex-column">
             <%_ for (const s of statistics) { -%>
-              <%_ const status = (s.county === statistic.county ) ? 'active bg-dark' : 'inactive'; -%>
-              <a href="/statistics/<%= s.id -%>" class="nav-item nav-link <%= status -%>"><%= s.county -%></a>
+
+              <a href="/statistics/<%= s.id -%>" class="nav-item nav-link"><%= s.county -%></a>
             <%_ } -%>
           </nav>
           <%_ if (admin) { -%>
@@ -25,8 +25,6 @@
             <%_ } else { -%>
               <%- include('./browse', {statistic: statistic}); -%>
             <%_ } -%>
-
-
               </tbody>
             </table>
           </main>
