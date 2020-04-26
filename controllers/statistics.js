@@ -1,20 +1,26 @@
 const Statistic = require('../models/statistic');
-
+/*
 module.exports.index = function(request, response, next) {
   Statistic.distinct('_id')
     .then(statisticId => response.redirect(`/statistics/${statisticId[0]}`))
     .catch(error => next(error));
  };
-/*
- // GET /sections?sort=
- module.exports.index = function(request, response, next) {
-   const order = request.query.sort || 'day'; // Default to sort by course
+ */
 
-   Statistic.find().sort(order)
-     .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
-     .catch(error => next(error));
+ module.exports.index = function(request, response, next) {
+   const order = request.query.sort || 'day'; // Default to sort by date
+   const day = Section.schema.path('day').enumValues;
+
+   const queries = [
+     Section.find().sort(order),
+     Course.distinct('_id')
+   ];
+
+   Promise.all(queries).then(function([statistics, statisticID]) {
+     response.render('statistics/index', {statistics: statistics, order: order, statisticID: statisticID, day: day});
+   }).catch(error => next(error));
  };
-*/
+
 // GET /counties/:id
 module.exports.retrieve = function(request, response, next) {
   const queries = [
