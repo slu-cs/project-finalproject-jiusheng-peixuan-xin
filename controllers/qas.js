@@ -34,14 +34,14 @@ module.exports.create = function(request, response, next) {
 
 // DELETE /qas/:id
 module.exports.delete = function(request, response, next) {
-  qa.findByIdAndDelete(request.params.id)
+  Qa.findByIdAndDelete(request.params.id)
     .then(qa => qa ? response.status(200).end() : next())
     .catch(error => next(error));
 };
 
 // PUT /qas/:id (with the changes in the request body)
 module.exports.update = function(request, response, next) {
-  qa.findByIdAndUpdate(request.params.id, request.body)
+  Qa.findByIdAndUpdate(request.params.id, request.body)
     .then(qa => qa ? response.status(200).end() : next())
     .catch(error => next(error));
 };
