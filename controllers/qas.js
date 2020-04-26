@@ -15,9 +15,9 @@ module.exports.retrieve = function(request, response, next) {
     Qa.distinct('_id')
   ];
 
-  Promise.all(queries).then(function([qas, qaId]) {
-    if (qas) {
-      response.render('qas/index', {qas: qas, qaId: qaId});
+  Promise.all(queries).then(function([qa, qaId]) {
+    if (qa) {
+      response.render('qas/index', {qa: qa, qaId: qaId});
     } else {
       next();
     }
