@@ -9,7 +9,7 @@ module.exports.index = function(request, response, next) {
 
  module.exports.index = function(request, response, next) {
    const order = request.query.sort || 'day'; // Default to sort by date
-   const day = Section.schema.path('day').enumValues;
+   const day = Statistic.schema.path('day').enumValues;
 
    const queries = [
      Statistic.find().sort(order),
