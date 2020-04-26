@@ -15,7 +15,7 @@
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
-              <%- include('./edit', {qas: qas, qaID: qaID}); -%>
+              <%- include('./edit', {qas: qas}); -%>
             <%_ } else { -%>
               <%- include('./browse', {qas: qas}); -%>
             <%_ } -%>
