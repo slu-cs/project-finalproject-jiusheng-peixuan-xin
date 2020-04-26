@@ -7,16 +7,9 @@
       <%_ if (admin) { -%>
         <%- include('./edit', {qas:qas.question,qas:qas.answer},); -%>
       <%_ } else { -%>
-        <%- include('./browse', {qas: qas}); -%>
+        <%- include('./browse', {qas: qas.question,qas:qas.answer}); -%>
       <%_ } -%>
-      <div class="container-fluid">
-        <div class="col">
-          <div class="col-auto p-3 border-right">
-            </div>
-          </div>
-        </div>
       </main>
-    </div>
 
   </body>
 </html>
