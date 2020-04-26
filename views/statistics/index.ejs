@@ -9,7 +9,7 @@
           <nav class="nav nav-pills flex-column">
             <%_ for (const s of statistic) { -%>
               <%_ const status = (s.id === statistic.id) ? 'active bg-dark' : 'inactive'; -%>
-              <a href="/statistics/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= s.id -%></a>
+              <a href="/statistics/<%= s.id -%>" class="nav-item nav-link <%= status -%>"><%= s.county -%></a>
             <%_ } -%>
           </nav>
           <%_ if (admin) { -%>
