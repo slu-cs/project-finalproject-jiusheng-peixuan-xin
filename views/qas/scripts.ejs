@@ -10,16 +10,10 @@
   $('#insert').on('click', function(event) {
 		$(this).before($(`
       <form class="form-inline">
-        <select name="course" class="form-control form-control-sm m-1">
-          <option selected disabled hidden value=""></option>
-          <%_ for (const qa of qas) { -%>
-            <option value="<%= qa -%>"><%= qa -%></option>
             <input type="text" name="question" class="form-control form-control-sm m-1">
             <input type="text" name="answer" class="form-control form-control-sm m-1">
             <button class="create btn btn-sm btn-primary m-1">Save</button>
             <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
-          <%_ } -%>
-        </select>
       </form>
 		`));
   });
