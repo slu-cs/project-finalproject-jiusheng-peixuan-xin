@@ -24,14 +24,13 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
-const Section = require('../models/statistic');
 
 // GET /sections?sort=
 module.exports.index = function(request, response, next) {
-  const order = request.query.sort || 'statistic'; // Default to sort by course
+  const order = request.query.sort || 'statistics'; // Default to sort by course
 
-  Section.find().sort(order)
-    .then(sections => response.render('statistic/index', {statistic: statistic, order: order}))
+  Statistics.find().sort(order)
+    .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
     .catch(error => next(error));
 };
 
