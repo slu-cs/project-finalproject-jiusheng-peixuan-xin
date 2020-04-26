@@ -1,0 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+  // Create a course
+  $('#create').on('submit', function(event) {
+    const form = $(this);
+    event.preventDefault();
+    $.ajax({method: 'post', url: '/courses', data: form.serialize()})
+      .done(id => window.location.replace(`/courses/${id}`))
+      .fail(error => alert(error.responseText));
+  });
+
+  // Update a course
+  $('#update').on('submit', function(event) {
+    const form = $(this);
+    event.preventDefault();
+    $.ajax({method: 'put', url: '/courses/<%= course.id -%>', data: form.serialize()})
+      .fail(error => alert(error.responseText));
+  });
+
+  // Delete a course
+  $('#delete').on('click', function(event) {
+    event.preventDefault();
+    $.ajax({method: 'delete', url: '/courses/<%= course.id -%>'})
+      .done(() => window.location.replace('/courses'))
+      .fail(error => alert(error.responseText));
+  });
+</script>
