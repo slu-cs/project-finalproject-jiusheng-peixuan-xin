@@ -28,9 +28,9 @@ module.exports.retrieve = function(request, response, next) {
     Statistic.distinct('_id')
   ];
 
-  Promise.all(queries).then(function([statistic, statisticId]) {
+  Promise.all(queries).then(function([statistic, statisticID]) {
     if (statistic) {
-      response.render('statistics/index', {statistic: statistic, statisticId: statisticId});
+      response.render('statistics/index', {statistic: statistic, statisticID: statisticID});
     } else {
       next();
     }
@@ -40,21 +40,21 @@ module.exports.retrieve = function(request, response, next) {
 //p2
 // POST /statistics (with the new statistic in the request body)
 module.exports.create = function(request, response, next) {
-  statistic.create(request.body)
+  Statistic.create(request.body)
     .then(statistic => response.status(201).send(statistic.id))
     .catch(error => next(error));
 };
 
 // DELETE /statistics/:id
 module.exports.delete = function(request, response, next) {
-  statistic.findByIdAndDelete(request.params.id)
+  Statistic.findByIdAndDelete(request.params.id)
     .then(statistic => statistic ? response.status(200).end() : next())
     .catch(error => next(error));
 };
 
 // PUT /statistics/:id (with the changes in the request body)
 module.exports.update = function(request, response, next) {
-  statistic.findByIdAndUpdate(request.params.id, request.body)
+  Statistic.findByIdAndUpdate(request.params.id, request.body)
     .then(statistic => statistic ? response.status(200).end() : next())
     .catch(error => next(error));
 };
