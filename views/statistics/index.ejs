@@ -12,16 +12,11 @@
               <a href="/statistics/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
             <%_ } -%>
           </nav>
-          <%_ if (admin) { -%>
-          <form id="create" class="form my-1">
-            <input type="text" name="_id" placeholder="CS###" size="1" class="form-control">
-          </form>
-        <%_ } -%>
         </div>
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
-              <%- include('./edit', {statistic: statistic, statisticID: statisticID}); -%>
+              <%- include('./edit', {statistic: statistic}); -%>
             <%_ } else { -%>
               <%- include('./browse', {statistic: statistic}); -%>
             <%_ } -%>
