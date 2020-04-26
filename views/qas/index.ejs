@@ -5,13 +5,6 @@
     <%- include('../navbar', {active: 'qa'}); -%>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-auto p-3 border-right">
-          <%_ if (admin) { -%>
-            <form id="create" class="form my-1">
-              <input type="text" name="_id" placeholder="CS###" size="1" class="form-control">
-            </form>
-          <%_ } -%>
-        </div>
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
