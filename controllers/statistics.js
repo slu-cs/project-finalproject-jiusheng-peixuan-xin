@@ -29,7 +29,7 @@ module.exports.retrieve = function(request, response, next) {
 module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'statistics'; // Default to sort by course
 
-  Statistics.find().sort(order)
+  Statistic.find().sort(order)
     .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
     .catch(error => next(error));
 };
