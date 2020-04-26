@@ -16,8 +16,8 @@ module.exports.index = function(request, response, next) {
      Statistic.distinct('_id')
    ];
 
-   Promise.all(queries).then(function([statistics, statisticID]) {
-     response.render('statistics/index', {statistics: statistics, order: order, statisticID: statisticID, day: day});
+   Promise.all(queries).then(function([statistic, statisticID]) {
+     response.render('statistics/index', {statistic: statistic, order: order, statisticID: statisticID, day: day});
    }).catch(error => next(error));
  };
 
