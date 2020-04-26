@@ -1,6 +1,8 @@
 <form id="update" class="form">
-  <input type="text" name="title" placeholder="Title" value="<%= qas[0].question -%>" class="form-control form-control-lg font-weight-bold mb-1">
-  <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"><%= qas[0].answer -%></textarea>
+  <%_ for (const qa of qas) { -%>
+    <input type="text" name="title" placeholder="Title" value="<%= qa.question -%>" class="form-control form-control-lg font-weight-bold mb-1">
+    <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"><%= qa.answer -%></textarea>
+  <%_ } -%>
   <button class="btn btn-primary">Save</button>
   <button id="delete" class="btn btn-primary">Delete</button>
 </form>
