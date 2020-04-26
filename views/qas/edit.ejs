@@ -1,7 +1,7 @@
 <form id="update" class="form">
   <input type="text" name="title" placeholder="Title" value="<%= qas[0].question -%>" class="form-control form-control-lg font-weight-bold mb-1">
   <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"><%= qas[0].answer -%></textarea>
-  <select multiple name="prereqs" size="<%= qa.length -%>" class="form-control w-auto mb-1">
+  <select multiple name="prereqs" size="<%= qas.length -%>" class="form-control w-auto mb-1">
     <%_ for (const id of qaID) { -%>
       <%_ const status = course.prereqs.includes(id) ? 'selected' : (id < qas.id) ? 'unselected' : 'disabled'; -%>
       <option <%= status -%> value="<%= id -%>">qa: <%= id -%></option>
