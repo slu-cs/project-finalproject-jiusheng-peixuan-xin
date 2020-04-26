@@ -4,19 +4,19 @@
   <body>
     <%- include('../navbar', {active: 'qas'}); -%>
     <main>
+      <%_ if (admin) { -%>
+        <%- include('./edit', {question:question,answer:answer},); -%>
+      <%_ } else { -%>
+        <%- include('./browse', {qas: qas}); -%>
+      <%_ } -%>
       <div class="container-fluid">
         <div class="col">
           <div class="col-auto p-3 border-right">
-            <%_ if (admin) { -%>
-              <%- include('./edit', {question:question,answer:answer},); -%>
-            <%_ } else { -%>
-              <%- include('./browse', {qas: qas}); -%>
-            <%_ } -%>
             </div>
           </div>
         </div>
       </main>
     </div>
-    
+
   </body>
 </html>
