@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-auto p-3 border-right">
           <nav class="nav nav-pills flex-column">
-            <%_ for (const s of statistic) { -%>
+            <%_ for (const s of statistics) { -%>
               <%_ const status = (s.id === statistic.id) ? 'active bg-dark' : 'inactive'; -%>
               <a href="/statistics/<%= s.id -%>" class="nav-item nav-link <%= status -%>"><%= s.county -%></a>
             <%_ } -%>
@@ -20,7 +20,12 @@
         </div>
         <div class="col">
           <main class="p-3">
-          
+            <%_ if (admin) { -%>
+              <%- include('./edit', {statistic: statistic, statisticID: statisticID}); -%>
+            <%_ } else { -%>
+              <%- include('./browse', {statistic: statistic}); -%>
+            <%_ } -%>
+
 
               </tbody>
             </table>
