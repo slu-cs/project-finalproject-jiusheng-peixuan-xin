@@ -2,21 +2,14 @@
 <html>
   <%- include('../head'); -%>
   <body>
-
+    <%- include('../navbar', {active: 'qas'}); -%>
     <main>
       <%_ if (admin) { -%>
         <%- include('./edit', {qas:qas.question,qas:qas.answer},); -%>
       <%_ } else { -%>
-        <%- include('./browse', {qas: qas.question,qas:qas.answer}); -%>
+        <%- include('./browse', {qas: qas.question,qas.answer}); -%>
       <%_ } -%>
-      <div class="container-fluid">
-        <div class="col">
-          <div class="col-auto p-3 border-right">
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
 
+      </main>
   </body>
 </html>
