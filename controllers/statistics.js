@@ -14,7 +14,7 @@ const Statistic = require('../models/statistic');
    const order = request.query.sort || 'day'; // Default to sort by course
 
    Statistic.find().sort(order)
-     .then(statistic => response.render('statistics/index', {statistic: statistic, order: order}))
+     .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
      .catch(error => next(error));
  };
 
