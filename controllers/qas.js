@@ -5,7 +5,7 @@ module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'question';
   Qa.find()
     .then(qas => response.render('qas/index', {qas: qas, order: order}))
-    .catch(error => next(erro));
+    .catch(error => next(error));
  };
 
 // GET /qas/:id
@@ -16,8 +16,8 @@ module.exports.retrieve = function(request, response, next) {
   ];
 
   Promise.all(queries).then(function([qas, qaId]) {
-    if (qa) {
-      response.render('qas/index', {qa: qa, qaId: qaId});
+    if (qas) {
+      response.render('qas/index', {qas: qas, qaId: qaId});
     } else {
       next();
     }
