@@ -43,7 +43,6 @@
     const form = $(this).closest('form');
     event.preventDefault();
     $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
-      .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
       .fail(error => alert(error.responseText));
   });
 
