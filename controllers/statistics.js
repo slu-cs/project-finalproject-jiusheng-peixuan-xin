@@ -23,6 +23,14 @@ module.exports.retrieve = function(request, response, next) {
     }
   }).catch(error => next(error));
 };
+// GET /sections?sort=
+module.exports.index = function(request, response, next) {
+  const order = request.query.sort || 'day'; // Default to sort by course
+
+  Statistic.find().sort(order)
+    .then(statistic => response.render('statistics/index', {statistic: statistic, order: order}))
+    .catch(error => next(error));
+};
 
 
 
