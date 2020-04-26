@@ -15,14 +15,33 @@ const authorize = function(request, response, next) {
   }
 };
 */
-// Handle course requests
+// Handle qa requests
+
+
+//p2
+
+// Check for admin status
+const authorize = function(request, response, next) {
+  if (request.session.admin) {
+    next(); // Fulfill the request
+  } else {
+    response.status(401).end();
+  }
+};
 
 // Handle section requests
 router.get('/qas', qas.index);
 router.get('/qas/:id', qas.retrieve);
 
+//p2
+router.post('/qas', authorize, qas.create);
+router.delete('/qas/:id', authorize, qas.delete);
+router.put('/qas/:id', authorize, qas.update);
+
+
 router.get('/statistics', statistics.index);
 router.get('/statistics/:id', statistics.retrieve);
+
 
 // Export the router
 module.exports = router;
