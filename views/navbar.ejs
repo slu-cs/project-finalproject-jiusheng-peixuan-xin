@@ -4,4 +4,11 @@
     <a href="/statistics" class="nav-item nav-link <%= (active === 'statistics') ? 'active' : 'inactive' -%>">Statistics</a>
     <a href="/qas" class="nav-item nav-link <%= (active === 'qas') ? 'active' : 'inactive' -%>">Q&A</a>
   </nav>
+  <nav class="navbar-nav ml-auto">
+   <%_ if (admin) { -%>
+     <a href="/logout" class="nav-item nav-link">Logout</a>
+   <%_ } else { -%>
+     <a href="/login" class="nav-item nav-link">Login</a>
+   <%_ } -%>
+ </nav>
 </header>
