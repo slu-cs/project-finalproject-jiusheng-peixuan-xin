@@ -1,11 +1,12 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
+
   // Create a course
   $('#create').on('submit', function(event) {
     const form = $(this);
     event.preventDefault();
     $.ajax({method: 'post', url: '/qas', data: form.serialize()})
-      .done(id => window.location.replace(`/qas/${id}`))
+      .done(id => window.location.replace(`/qas`))
       .fail(error => alert(error.responseText));
   });
 
@@ -13,14 +14,14 @@
   $('#update').on('submit', function(event) {
     const form = $(this);
     event.preventDefault();
-    $.ajax({method: 'put', url: '/qas/<%= qa.id -%>', data: form.serialize()})
+    $.ajax({method: 'put', url: '/qas', data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
 
   // Delete a course
   $('#delete').on('click', function(event) {
     event.preventDefault();
-    $.ajax({method: 'delete', url: '/qas/<%= qa.id -%>'})
+    $.ajax({method: 'delete', url: '/qas'})
       .done(() => window.location.replace('/qas'))
       .fail(error => alert(error.responseText));
   });
