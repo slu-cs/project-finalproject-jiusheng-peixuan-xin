@@ -1,28 +1,65 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 
-  // Create a course
-  $('#create').on('submit', function(event) {
-    const form = $(this);
+  // Highlight changes in form inputs
+  $(document).on('input', '.form-control', function(event) {
+    $(this).addClass('bg-dark text-white');
+  });
+
+  // Insert a form
+  $('#insert').on('click', function(event) {
+		$(this).before($(`
+      <form class="form-inline">
+        <select name="course" class="form-control form-control-sm m-1">
+          <option selected disabled hidden value=""></option>
+          <%_ for (const qa of qas) { -%>
+            <option value="<%= qa -%>"><%= qa -%></option>
+            <input type="text" name="question" class="form-control form-control-sm m-1">
+            <input type="text" name="answer" class="form-control form-control-sm m-1">
+            <button class="create btn btn-sm btn-primary m-1">Save</button>
+            <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
+          <%_ } -%>
+        </select>
+      </form>
+		`));
+  });
+
+  // Un-insert a form
+  $(document).on('click', '.uninsert', function(event) {
+    $(this).closest('form').remove();
+    event.preventDefault();
+  });
+
+  // Create a section
+  $(document).on('click', '.create', function(event) {
+    const form = $(this).closest('form');
     event.preventDefault();
     $.ajax({method: 'post', url: '/qas', data: form.serialize()})
-      .done(id => window.location.replace(`/qas`))
+      .done(function(id) {
+        form.attr('id', id);
+        form.find('.create').removeClass('create').addClass('update');
+        form.find('.uninsert').removeClass('uninsert').addClass('delete');
+        form.find('.form-control').removeClass('bg-dark text-white');
+      })
+      .fail(error => alert(error.responseText));
+	});
+
+  // Update a section
+  $(document).on('click', '.update', function(event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
+      .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
       .fail(error => alert(error.responseText));
   });
 
-  // Update a course
-  $('#update').on('submit', function(event) {
-    const form = $(this);
+  // Delete a section
+  $(document).on('click', '.delete', function(event) {
+    const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'put', url: '/qas', data: form.serialize()})
+		$.ajax({method: 'delete', url: `/qas/${form.attr('id')}`})
+			.done(() => form.remove())
       .fail(error => alert(error.responseText));
-  });
+	});
 
-  // Delete a course
-  $('#delete').on('click', function(event) {
-    event.preventDefault();
-    $.ajax({method: 'delete', url: '/qas'})
-      .done(() => window.location.replace('/qas'))
-      .fail(error => alert(error.responseText));
-  });
 </script>
