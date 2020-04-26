@@ -2,10 +2,10 @@
 <html>
   <%- include('../head'); -%>
   <body>
-    
+
     <main>
       <%_ if (admin) { -%>
-        <%- include('./edit', {question:question,answer:answer},); -%>
+        <%- include('./edit', {qas:qas.question,qas:qas.answer},); -%>
       <%_ } else { -%>
         <%- include('./browse', {qas: qas}); -%>
       <%_ } -%>
