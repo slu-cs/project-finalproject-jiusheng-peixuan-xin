@@ -21,9 +21,9 @@
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
-              <%- include('./edit', {course: course, courseIDs: courseIDs}); -%>
+              <%- include('./edit', {statistic: statistic, statisticID: statisticID}); -%>
             <%_ } else { -%>
-              <%- include('./browse', {course: course}); -%>
+              <%- include('./browse', {statistic: statistic}); -%>
             <%_ } -%>
 
               </tbody>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <%_ if (admin) { -%>
-      <%- include('./scripts', {course: course}); -%>
+      <%- include('./scripts', {statistic: statistic}); -%>
     <%_ } -%>
   </body>
 </html>
