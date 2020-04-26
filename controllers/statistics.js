@@ -30,7 +30,7 @@ module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'statistics'; // Default to sort by course
 
   Section.find().sort(order)
-    .then(sections => response.render('statisticss/index', {statistics: statistics, order: order}))
+    .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
     .catch(error => next(error));
 };
 
