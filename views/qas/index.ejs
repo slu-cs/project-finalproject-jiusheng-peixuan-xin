@@ -5,11 +5,10 @@
     <%- include('../navbar', {active: 'qas'}); -%>
     <main>
       <%_ if (admin) { -%>
-        <%- include('./edit', {qas:qas.question,qas:qas.answer},); -%>
+        <%- include('./edit', {qa:qa,qaID:qaID},); -%>
       <%_ } else { -%>
-        <%- include('./browse', {qas: qas.question,qas.answer}); -%>
+        <%- include('./browse', {qa: qa}); -%>
       <%_ } -%>
-
-      </main>
+    </main>
   </body>
 </html>
