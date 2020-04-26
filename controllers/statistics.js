@@ -12,8 +12,8 @@ module.exports.index = function(request, response, next) {
    const day = Section.schema.path('day').enumValues;
 
    const queries = [
-     Section.find().sort(order),
-     Course.distinct('_id')
+     Statistic.find().sort(order),
+     Statistic.distinct('_id')
    ];
 
    Promise.all(queries).then(function([statistics, statisticID]) {
