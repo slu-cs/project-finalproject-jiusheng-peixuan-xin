@@ -12,12 +12,6 @@
             <%_ } else { -%>
               <%- include('./browse', {qas: qas}); -%>
             <%_ } -%>
-            <nav class="nav nav-pills flex-column">
-              <%_ for (const qa of qas) { -%>
-                <h2><%= qa.question -%></h2>
-                <p><%= qa.answer -%></p>
-                <%_ } -%>
-              </nav>
             </div>
           </div>
         </div>
