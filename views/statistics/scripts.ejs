@@ -14,7 +14,7 @@
             <tr>
               <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="date"></td>
               <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-              <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"</td>
+              <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
             </tr>
         </tbody>
             <button class="create btn btn-sm btn-primary m-1">Save</button>
@@ -33,7 +33,13 @@
  $(document).on('click', '.create', function(event) {
    const form = $(this).closest('form');
    event.preventDefault();
-   $.ajax({method: 'post', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+   const newdata = $("form").serializeArray();
+    $.each(newdata, function(i, field){
+      statistic.day.push(field.day)
+      statistic.confirmed.push(field.confirmed)
+      statistic.death.push(field.death)
+    });
+   $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic.serialize()})
      .done(function(id) {
        form.attr('id', id);
        form.find('.create').removeClass('create');
