@@ -5,8 +5,8 @@ module.exports.index = function(request, response, next) {
     .then(statisticID => response.redirect(`/statistics/${statisticID[0]}`))
     .catch(error => next(error));
  };
-
 */
+
  module.exports.index = function(request, response, next) {
    const order = request.query.sort || 'day'; // Default to sort by date
 
