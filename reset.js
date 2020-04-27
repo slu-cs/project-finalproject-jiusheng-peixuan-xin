@@ -91,8 +91,7 @@ file.on('close', function() {
     .then(() => {
       for (const s of statistics) {
         getCounty(counties, s);
-      }))
-    }
+      }
     })
     .then(() => Promise.all(counties.map(county => county.save())))
     .then(() => Promise.all(qas.map(qa => qa.save())))
