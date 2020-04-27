@@ -21,7 +21,7 @@ router.get('/latest', counties.index);
 // Handle section requests
 router.get('/qas', qas.index);
 router.get('/qas/:id', qas.retrieve);
-router.post('/qas', authorize, qas.create);
+router.post('/qas', qas.create);
 router.delete('/qas/:id', authorize, qas.delete);
 router.put('/qas/:id', authorize, qas.update);
 

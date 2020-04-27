@@ -12,11 +12,11 @@
       </form>
 
       <nav class="nav nav-pills flex-column">
-        <form class="form-inline">
-          <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
-          <button id="create" class="btn btn-primary update">Save</button>
-        </form>
-        <h2>Answerd Question</h2>
+       <form class="form-inline">
+           <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
+           <button class="btn btn-primary create">Save</button>
+       </form>
+       <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
           <h2><%= qa.question -%></h2>
           <p><%= qa.answer -%></p>
