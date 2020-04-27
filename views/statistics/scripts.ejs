@@ -5,7 +5,6 @@
   $(document).on('input', '.form-control', function(event) {
     $(this).addClass('bg-dark text-white');
   });
-
   // Insert a form
   $(document).on('click','#insert',function(event) {
     $(this).before($(`
@@ -13,19 +12,7 @@
       <table class="table">
         <tbody>
           <tr>
-<<<<<<< HEAD
-            <th><input type="text" class="form-cntrol county" name="county"></th>
-=======
-
-            <th>
-              <select name="county">
-              <option selected disabled hidden value=""></option>
-              <%_ for (const c of counties) { -%>
-                <option value="<%= c -%>"><%= c -%></option>
-              <%_ } -%>
-              </select>
-            </th>
->>>>>>> 85ff394187cf11d86c5bfcafc08c7ace60a7f08b
+            <th scope="row"><input type="text" class="form-cntrol county" name="county"></td></th>
             <td><input type="text" class="form-cntrol date" name="day"></td>
             <td><input type="text" class="form-cntrol confirmed" name="confirmed"></td>
             <td><input type="text" class="form-cntrol death" name="death"></td>
@@ -37,13 +24,11 @@
     </form>
     `));
   });
-
   // Un-insert a form
   $(document).on('click', '.uninsert', function(event) {
     $(this).closest('form').remove();
     event.preventDefault();
   });
-
   // Create a new statistic
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
@@ -57,8 +42,6 @@
       })
       .fail(error => alert(error.responseText));
 	});
-
-
 <%_ } else { -%>
   $(document).on('click', '#sort', function(event) {
     const tbody = $('#display tbody');
