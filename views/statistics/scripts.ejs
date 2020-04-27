@@ -29,35 +29,12 @@
     event.preventDefault();
   });
 
-  // Create a section
+  // Update a course
   $(document).on('click', '.create', function(event) {
-    const form = $(this).closest('form');
+    const form = $(this);
     event.preventDefault();
-    $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
-      .done(function(id) {
-        form.attr('id', id);
-        form.find('.create').removeClass('create').addClass('update');
-        form.find('.uninsert').removeClass('uninsert').addClass('delete');
-        form.find('.form-control').removeClass('bg-dark text-white');
-      })
-      .fail(error => alert(error.responseText));
-	});
-
-  // Update a section
-  $(document).on('click', '.update', function(event) {
-    const form = $(this).closest('form');
-    event.preventDefault();
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
-      .fail(error => alert(error.responseText));
+    $.ajax({method: 'put', url: '/statistics/<%= statistic.id -%>', data: form.serialize()})
+    .fail(error => alert(error.responseText));
   });
-
-  // Delete a section
-  $(document).on('click', '.delete', function(event) {
-    const form = $(this).closest('form');
-    event.preventDefault();
-		$.ajax({method: 'delete', url: `/statistics/${form.attr('id')}`})
-			.done(() => form.remove())
-      .fail(error => alert(error.responseText));
-	});
 
 </script>
