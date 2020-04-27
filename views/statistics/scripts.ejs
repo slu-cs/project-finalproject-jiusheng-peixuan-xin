@@ -9,7 +9,8 @@
   // Insert a form
   $(document).on('click','#insert',function(event) {
     $(this).before($(`
-    <table id="<%= statistic.id -%>" class="table">
+    <form id="<%= statistic.id -%>">
+    <table class="table">
       <tbody>
         <tr>
           <th><input type="text" class="form-cntrol" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
@@ -20,19 +21,20 @@
       <button class="create btn btn-sm btn-primary m-1">Save</button>
       <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
     </table>
+    </form>
     `));
   });
 
   // Un-insert a form
   $(document).on('click', '.uninsert', function(event) {
-    $(this).closest('table').remove();
+    $(this).closest('form').remove();
     event.preventDefault();
   });
 
   // Create a new statistic
   // Does not work properly!
   $(document).on('click', '.create', function(event) {
-    const form = $(this).closest('table');
+    const form = $(this).closest('form');
     event.preventDefault();
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
