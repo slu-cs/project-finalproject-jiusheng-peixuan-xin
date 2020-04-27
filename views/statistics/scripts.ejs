@@ -10,17 +10,17 @@
   $(document).on('click','#insert',function(event) {
     $(this).before($(`
     <form id="<%= statistic.id -%>">
-    <table class="table">
-      <tbody>
-        <tr>
-          <th><input type="text" class="form-cntrol" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
-          <td><input type="text" class="form-cntrol" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-          <td><input type="text" class="form-cntrol" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
-        </tr>
-      </tbody>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><input type="text" class="form-cntrol" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
+            <td><input type="text" class="form-cntrol" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
+            <td><input type="text" class="form-cntrol" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+          </tr>
+        </tbody>
+      </table>
       <button class="create btn btn-sm btn-primary m-1">Save</button>
       <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
-    </table>
     </form>
     `));
   });
@@ -36,6 +36,7 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
+    console.log(form.serialize().day)
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
