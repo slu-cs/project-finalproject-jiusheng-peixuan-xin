@@ -12,7 +12,7 @@
     <form id="<%= statistic.id -%>">
       <tbody>
         <tr>
-          <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="date"></td>
+          <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></td>
           <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
           <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
         </tr>
@@ -41,18 +41,4 @@
       })
       .fail(error => alert(error.responseText));
   });
-  /*
-  // Create a section
-  $(document).on('click', '.create', function(event) {
-    const form = $(this).closest('form');
-    event.preventDefault();
-    $.ajax({method: 'post', url: '/sections', data: form.serialize()})
-      .done(function(id) {
-        form.attr('id', id);
-        form.find('.create').removeClass('create').addClass('update');
-        form.find('.uninsert').removeClass('uninsert').addClass('delete');
-      })
-      .fail(error => alert(error.responseText));
-  });
-*/
 </script>
