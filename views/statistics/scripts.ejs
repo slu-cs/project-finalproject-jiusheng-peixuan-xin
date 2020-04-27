@@ -33,7 +33,8 @@
       const form = $(this).closest('form');
       event.preventDefault();
       $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
-        .done(function() {
+        .done(function(id) {
+          form.attr('id', id);
           form.find('.create').removeClass('create').addClass('update');
           form.find('.uninsert').removeClass('uninsert').addClass('delete');
         })
