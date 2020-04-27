@@ -33,7 +33,7 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'post', url: `/statistics/${form.attr('id')}`, data: statistic.serialize()})
+    $.ajax({method: 'post', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .done(function(id) {
         form.attr('id', id);
         form.find('.create').removeClass('create');
