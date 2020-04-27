@@ -36,7 +36,10 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    console.log(form.serialize().day)
+    data = form.serialize;
+    statistic.day.push(data.day);
+    statistic.confirmed.push(data.confirmed);
+    statistic.death.push(data.death);
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
