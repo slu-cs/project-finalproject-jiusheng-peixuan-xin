@@ -7,7 +7,7 @@
   });
 
   // Insert a form
-  $('#insert').on('click', function(event) {
+  $(document).on('click','.insert',function(event) {
 		$(this).before($(`
       <form id="<%= statistic.id -%>" class="table">
         <tbody>
