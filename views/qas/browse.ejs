@@ -6,10 +6,11 @@
        <form id="searchbar">
      <input type="text" id="search" placeholder="Question">
 
-  <button>Search</button>
+    <button>Search</button>
+    <h2>Result</h2>
+    <div ></div>
    </form>
-   <h2>Result</h2>
-   <textarea rows="5" cols="85"></textarea>
+
 
 
       <nav class="nav nav-pills flex-column">
@@ -19,6 +20,8 @@
        </form>
        <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
+          <%_ if (${('#search').val()}.in(qa.question))-%>
+
           <h2><%= qa.question -%></h2>
           <p><%= qa.answer -%></p>
           <%_ } -%>
@@ -27,18 +30,19 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script>
+
+      /*  $(document).on('click', '.update', function(event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
+      .fail(error => alert(error.responseText));
+  });*/
       // Intercept form submits
-      $('#searchbar').on('submit', function(event) {
+      /*$('#searchbar').on('submit', function(event) {
         event.preventDefault();
-         f
-
-
-        // Construct a request object
-        const request =  $('#search').val();
-
-
+         const form = $(this).closest('form');
         // Send the request and display the response on the page
-        $.ajax(request)
+        $.ajax({method: 'get', url: `/qas}`, data: form.serialize()})
           .done(response => $('textarea ').val(JSON.stringify(response)))
           .fail(error => $('textarea').val(JSON.stringify(error)));
       });*/
