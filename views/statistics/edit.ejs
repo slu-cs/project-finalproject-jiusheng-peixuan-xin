@@ -1,5 +1,4 @@
 <main class="p-3">
-
   <table class="table">
     <thead>
       <tr>
@@ -13,12 +12,14 @@
     </thead>
     <tbody>
       <%_ for (const statistic of statistics) { -%>
+        <form id="<%= statistic.id -%>">
         <tr>
           <th scope="row"><%= statistic.county -%></th>
           <td><%= statistic.date -%></td>
           <td><%= statistic.confirmed -%></td>
           <td><%= statistic.death -%></td>
         </tr>
+        </form>
       <%_ } -%>
     </tbody>
   </table>

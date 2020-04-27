@@ -9,13 +9,14 @@
   // Insert a form
   $(document).on('click','#insert',function(event) {
     $(this).before($(`
-    <form id="<%= statistic.id -%>">
+    <form>
       <table class="table">
         <tbody>
           <tr>
-            <th><input type="text" class="form-cntrol date" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
-            <td><input type="text" class="form-cntrol confirmed" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-            <td><input type="text" class="form-cntrol death" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+            <th><input type="text" class="form-cntrol county" scope="row" name="county"></th>
+            <td><input type="text" class="form-cntrol date" name="day"></td>
+            <td><input type="text" class="form-cntrol confirmed" name="confirmed"></td>
+            <td><input type="text" class="form-cntrol death" name="death"></td>
           </tr>
         </tbody>
       </table>
@@ -32,13 +33,19 @@
   });
 
   // Create a new statistic
-  // Does not work properly!
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
+      .done(function(id) {
+        form.attr('id', id);
+        form.find('.create').removeClass('create').addClass('update');
+        form.find('.uninsert').removeClass('uninsert').addClass('delete');
+        form.find('.form-control').removeClass('bg-dark text-white');
+      })
       .fail(error => alert(error.responseText));
-  });
+	});
+
 
 <%_ } else { -%>
   $(document).on('click', '#sort', function(event) {
