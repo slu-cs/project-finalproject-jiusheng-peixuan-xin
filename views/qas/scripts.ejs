@@ -38,6 +38,21 @@
       .fail(error => alert(error.responseText));
 	});
 
+
+  $('#addquestion').on('click', '.insert', function(event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    $.ajax({method: 'post', url: '/qas', data: form.serialize()})
+      .done(function(id) {
+        form.attr('id', id);
+        form.find('.create').removeClass('create').addClass('update');
+        form.find('.uninsert').removeClass('uninsert').addClass('delete');
+        form.find('.form-control').removeClass('bg-dark text-white');
+      })
+      .fail(error => alert(error.responseText));
+	});
+
+
   // Update a section
   $(document).on('click', '.update', function(event) {
     const form = $(this).closest('form');
@@ -45,6 +60,7 @@
     $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
+
   // Delete a section
 
   $(document).on('click', '.delete', function(event) {
