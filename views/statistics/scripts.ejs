@@ -13,7 +13,19 @@
       <table class="table">
         <tbody>
           <tr>
+<<<<<<< HEAD
             <th><input type="text" class="form-cntrol county" name="county"></th>
+=======
+
+            <th>
+              <select name="county">
+              <option selected disabled hidden value=""></option>
+              <%_ for (const c of counties) { -%>
+                <option value="<%= c -%>"><%= c -%></option>
+              <%_ } -%>
+              </select>
+            </th>
+>>>>>>> 85ff394187cf11d86c5bfcafc08c7ace60a7f08b
             <td><input type="text" class="form-cntrol date" name="day"></td>
             <td><input type="text" class="form-cntrol confirmed" name="confirmed"></td>
             <td><input type="text" class="form-cntrol death" name="death"></td>
