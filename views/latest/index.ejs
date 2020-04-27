@@ -16,7 +16,7 @@
         <tbody>
           <%_ for (const county of counties) { -%>
             <tr>
-              <td><%= county.name -%></a></td>
+              <td><a href="/statistics/<%= county.name -%>"><%= county.name -%></a></td>
               <td><%= county.date -%></td>
               <td><%= county.confirmed -%></td>
               <td><%= county.death -%></td>
