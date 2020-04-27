@@ -29,12 +29,16 @@
     event.preventDefault();
   });
 
-  // Create a section
+  // Create a new statistic
   // Does not work
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
+    const arr = form.serialieArrary();
+    statistic.day.push(arr[0].day)
+    statistic.day.push(arr[0].confirmed)
+    statistic.day.push(arr[0].death)
     event.preventDefault();
-    $.ajax({method: 'post', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic})
       .done(function(id) {
         form.attr('id', id);
         form.find('.create').removeClass('create');
