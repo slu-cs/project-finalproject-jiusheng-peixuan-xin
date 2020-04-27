@@ -9,7 +9,7 @@
   // Insert a form
   $('#insert').on('click', function(event) {
 		$(this).before($(`
-      <form class="table">
+      <form id="<%= statistic.id -%>" class="table">
         <tbody>
             <tr>
               <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="date"></td>
