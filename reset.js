@@ -23,17 +23,6 @@ const County = new mongoose.Schema({
 */
 const counties = [];
 
-const getCounty = function(arr, item) {
-  // prevent duplication
-  for (let r of arr) {
-    if (Object.is(r.name, item)) {
-      return arr;
-    }
-  }
-  arr.push(new County({name: item}));
-  return arr;
-};
-
 // statistic collection
 /*
 const Statistic = new mongoose.Schema({
@@ -91,13 +80,21 @@ for (const s of statistics) {
     date: s.day[s.day.length - 1],
     confirmed: s.confirmed[s.day.length - 1],
     death: s.death[s.day.length - 1]
-  }))
+  }));
 }
 
 // End the program when the file closes
 file.on('close', function() {
   mongoose.connection.dropDatabase()
     .then(() => Promise.all(statistics.map(statistic => statistic.save())))
+    .then(() =>
+    for (const s of statistics) {
+      counties.push(new County({name: s.county,
+        date: s.day[s.day.length - 1],
+        confirmed: s.confirmed[s.day.length - 1],
+        death: s.death[s.day.length - 1]
+      }));
+    })
     .then(() => Promise.all(counties.map(county => county.save())))
     .then(() => Promise.all(qas.map(qa => qa.save())))
     .then(() => mongoose.connection.close())
