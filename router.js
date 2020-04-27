@@ -33,7 +33,7 @@ if (!qa) {
   }  else {
     response.send(qa);
   }
-});*/
+});
 
 
 router.get('/statistics', statistics.index);
