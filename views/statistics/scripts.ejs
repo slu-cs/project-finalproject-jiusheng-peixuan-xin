@@ -25,14 +25,14 @@
 
   // Un-insert a form
   $(document).on('click', '.uninsert', function(event) {
-    $(this).closest('form').remove();
+    $(this).closest('table').remove();
     event.preventDefault();
   });
 
   // Create a new statistic
   // Does not work properly!
   $(document).on('click', '.create', function(event) {
-    const form = $(this).closest('form');
+    const form = $(this).closest('table');
     event.preventDefault();
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
