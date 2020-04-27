@@ -36,11 +36,11 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-
-    statistic.day.push($('.date').val());
-    statistic.confirmed.push($('.confirmed').val());
-    statistic.death.push($('.death').val());
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic})
+    data = <%= statistic -%>;
+    data.day.push($('.date').val());
+    data.confirmed.push($('.confirmed').val());
+    data.death.push($('.death').val());
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: data})
       .fail(error => alert(error.responseText));
   });
 </script>
