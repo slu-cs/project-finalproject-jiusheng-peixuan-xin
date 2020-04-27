@@ -16,6 +16,8 @@ const authorize = function(request, response, next) {
   }
 };
 
+router.get('/latest', counties.index);
+
 // Handle section requests
 router.get('/qas', qas.index);
 router.get('/qas/:id', qas.retrieve);
@@ -40,7 +42,7 @@ router.post('/statistics', authorize, statistics.create);
 router.delete('/statistics/:id', authorize, statistics.delete);
 router.put('/statistics/:id', authorize, statistics.update);
 
-router.get('/latest', counties.index);
+
 
 
 

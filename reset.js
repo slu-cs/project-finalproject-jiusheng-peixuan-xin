@@ -74,14 +74,6 @@ file.on('line', function(line){
   }
 });
 
-// how to run this code after statisics collection created
-for (const s of statistics) {
-  counties.push(new County({name: s.county,
-    date: s.day[s.day.length - 1],
-    confirmed: s.confirmed[s.day.length - 1],
-    death: s.death[s.day.length - 1]
-  }));
-}
 
 // End the program when the file closes
 file.on('close', function() {

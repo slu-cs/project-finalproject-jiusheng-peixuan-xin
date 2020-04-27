@@ -10,13 +10,15 @@
   $(document).on('click','#insert',function(event) {
     $(this).before($(`
     <form id="<%= statistic.id -%>">
-      <tbody>
-        <tr>
-          <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></td>
-          <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-          <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
-        </tr>
-      </tbody>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th><input type="text" class="form-cntrol date" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
+            <td><input type="text" class="form-cntrol confirmed" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
+            <td><input type="text" class="form-cntrol death" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+          </tr>
+        </tbody>
+      </table>
       <button class="create btn btn-sm btn-primary m-1">Save</button>
       <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
     </form>
@@ -34,16 +36,14 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: $('.tbody').serialize()})
       .fail(error => alert(error.responseText));
   });
-</script>
+
 <%_ } else { -%>
-<script>
   $(document).on('click', '#sort', function(event) {
-    statistic.day.reverse();
-    statistic.confirmed.reverse();
-    statistic.death.reverse();
+    const tbody = $('#display tbody');
+    tbody.html($('tr',tbody).get().reverse())
   });
-</script>
 <%_ } -%>
+</script>

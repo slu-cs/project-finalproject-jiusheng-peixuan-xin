@@ -1,24 +1,22 @@
 <main class="p-3">
-  <form id="<%= statistic.id -%>">
   <h2><%= statistic.county -%></h2>
   <table class="table">
     <thead>
       <tr>
-        <th class="border-0">Date</th>
-        <th class="border-0">Confirmed</th>
-        <th class="border-0">Death</th>
+        <th scope="col">Date</th>
+        <th scope="col">Confirmed</th>
+        <th scope="col">Death</th>
       </tr>
     </thead>
     <tbody>
       <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
         <tr>
-          <td><%= statistic.day[i] -%></td>
+          <th scope="row"><%= statistic.day[i] -%></th>
           <td><%= statistic.confirmed[i] -%></td>
           <td><%= statistic.death[i] -%></td>
         </tr>
       <%_ } -%>
     </tbody>
   </table>
-  </form>
 </main>
 <button id="insert" class="btn btn-sm btn-primary m-1">New statistic</button>
