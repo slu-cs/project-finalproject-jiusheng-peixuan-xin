@@ -29,14 +29,6 @@ router.post('/statistics', authorize, statistics.create);
 router.delete('/statistics/:id', authorize, statistics.delete);
 router.put('/statistics/:id', authorize, statistics.update);
 
-router.get('/:id', function(request, response, next) {
-  const qa = qas.find({"question":/request/});
-  if (!qa) {
-    next(); // Leads to 404
-  } else {
-    response.send(qa);
-  }
-});
 
 
 
