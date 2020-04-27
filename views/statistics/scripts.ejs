@@ -12,9 +12,9 @@
       <form class="table">
         <tbody>
             <tr>
-              <td><input type="text" name="date" class="form-control form-control-sm m-1"></td>
-              <td><input type="text" name="confirmed" class="form-control form-control-sm m-1></td>
-              <td><input type="text" name="death" class="form-control form-control-sm m-1></td>
+              <td><input type="text" name="date"></td>
+              <td><input type="text" name="confirmed"></td>
+              <td><input type="text" name="death"</td>
             </tr>
         </tbody>
             <button class="create btn btn-sm btn-primary m-1">Save</button>
@@ -47,7 +47,7 @@
   $(document).on('click', '.update', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'put', url: `//statistics/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
 
@@ -55,7 +55,7 @@
   $(document).on('click', '.delete', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-		$.ajax({method: 'delete', url: `//statistics/${form.attr('id')}`})
+		$.ajax({method: 'delete', url: `/statistics/${form.attr('id')}`})
 			.done(() => form.remove())
       .fail(error => alert(error.responseText));
 	});
