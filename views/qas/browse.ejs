@@ -15,9 +15,9 @@
 
 
       <nav class="nav nav-pills flex-column">
-        <form id="addquestion">
-         <input type="text" name="question" placeholder="Question" class="form-control form-control-lg font-weight-bold mb-1">
-         <button id="insert" class="btn btn-primary">Submit</button>
+       <form id="<%= qa.id -%>" class="form-inline">
+           <input type="text" name="question" placeholder="Question" value="<%= qa.question -%>" class="form-control form-control-lg font-weight-bold mb-1">
+           <button class="btn btn-primary update">Save</button>
        </form>
        <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
