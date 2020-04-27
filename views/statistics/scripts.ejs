@@ -40,11 +40,6 @@
     console.log(statistic.day[statistic.day.length - 1])
     event.preventDefault();
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic})
-      .done(function(id) {
-        form.attr('id', id);
-        form.find('.create').removeClass('create');
-        form.find('.uninsert').removeClass('uninsert');
-      })
       .fail(error => alert(error.responseText));
   });
 </script>
