@@ -1,12 +1,12 @@
 const Statistic = require('../models/statistic');
-
+/*
 module.exports.index = function(request, response, next) {
   Statistic.distinct('_id')
-    .then(statisticId => response.redirect(`/statistics/${statisticId[0]}`))
+    .then(statisticID => response.redirect(`/statistics/${statisticID[0]}`))
     .catch(error => next(error));
  };
 
-/*
+*/
  module.exports.index = function(request, response, next) {
    const order = request.query.sort || 'day'; // Default to sort by date
 
@@ -19,7 +19,7 @@ module.exports.index = function(request, response, next) {
      response.render('statistics/index', {statistic: statistic, order: order, statisticID: statisticID});
    }).catch(error => next(error));
  };
-*/
+
 // GET /counties/:id
 module.exports.retrieve = function(request, response, next) {
   const queries = [

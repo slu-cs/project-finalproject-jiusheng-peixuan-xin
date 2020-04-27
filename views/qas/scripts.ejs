@@ -39,6 +39,7 @@
 	});
 
   // Update a section
+  // does not work!!!
   <%_ if (admin) { -%>
   $(document).on('click', '.update', function(event) {
     const form = $(this).closest('form');
@@ -47,6 +48,8 @@
       .fail(error => alert(error.responseText));
   });
   <%_ } -%>
+
+
   // Delete a section
   <%_ if (admin) { -%>
   $(document).on('click', '.delete', function(event) {
