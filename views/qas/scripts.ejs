@@ -39,16 +39,14 @@
 	});
 
   // Update a section
-  <%_ if (admin) { -%>
   $(document).on('click', '.update', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
     $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
-  <%_ } -%>
   // Delete a section
-  <%_ if (admin) { -%>
+
   $(document).on('click', '.delete', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
@@ -56,6 +54,6 @@
 			.done(() => form.remove())
       .fail(error => alert(error.responseText));
 	});
-  <%_ } -%>
+
 
 </script>
