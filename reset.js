@@ -51,7 +51,8 @@ const getCounty = function(arr, stat) {
     confirmed: stat.confirmed,
     death: stat.death,
     date: stat.date
-  );
+  });
+)
   return arr;
 };
 
