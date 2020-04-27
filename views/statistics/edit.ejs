@@ -11,8 +11,8 @@
     <tbody>
       <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
         <tr>
-          <td><%= statistic.day[i] -%></td>
-          <td><%= statistic.confirmed[i] -%></td>
+          <th scope="row"><%= statistic.day[i] -%></th>
+          <td<%= statistic.confirmed[i] -%></td>
           <td><%= statistic.death[i] -%></td>
         </tr>
       <%_ } -%>

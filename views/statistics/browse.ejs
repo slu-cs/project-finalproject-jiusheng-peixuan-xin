@@ -3,9 +3,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">
-          <button id="sort" class="btn btn-sm btn-primary m-1">Date</button>
-        </th>
+        <th scope="col">Date</th>
         <th scope="col">Confirmed</th>
         <th scope="col">Death</th>
       </tr>
@@ -13,7 +11,7 @@
     <tbody>
       <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
         <tr>
-          <td><%= statistic.day[i] -%></td>
+          <th scope="row"><%= statistic.day[i] -%></th>
           <td<%= statistic.confirmed[i] -%></td>
           <td><%= statistic.death[i] -%></td>
         </tr>
