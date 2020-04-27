@@ -30,18 +30,11 @@
   });
 
   // Create a new statistic
-  // Does not work
+  // Does not work properly!
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
-
-    const arr = form.serializeArray();
-    statistic.day.push(arr[0].day)
-    statistic.day.push(arr[0].confirmed)
-    statistic.day.push(arr[0].death)
-    console.log(statistic.day[statistic.day.length - 1])
-
     event.preventDefault();
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
 </script>
