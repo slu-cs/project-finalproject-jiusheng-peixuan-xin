@@ -2,7 +2,6 @@
 const express = require('express');
 const qas = require('./controllers/qas');
 const statistics = require('./controllers/statistics');
-const latest = require('./controllers/latest');
 
 // Create the router
 const router = express.Router();
@@ -23,7 +22,7 @@ router.post('/qas', authorize, qas.create);
 router.delete('/qas/:id', authorize, qas.delete);
 router.put('/qas/:id', authorize, qas.update);
 
-router.get('/qas/search', function(request, response, next) {
+/*router.get('/qas/search', function(request, response, next) {
 const qa =   qas.find({"question":/request/})
 if (!qa) {
   console.log('no question found ');
@@ -31,7 +30,7 @@ if (!qa) {
   }  else {
     response.send(qa);
   }
-  });
+});*/
 
 
 router.get('/statistics', statistics.index);
@@ -39,9 +38,6 @@ router.get('/statistics/:id', statistics.retrieve);
 router.post('/statistics', authorize, statistics.create);
 router.delete('/statistics/:id', authorize, statistics.delete);
 router.put('/statistics/:id', authorize, statistics.update);
-
-router.get('/latest', latest.index);
-
 
 
 
