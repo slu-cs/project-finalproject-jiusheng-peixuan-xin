@@ -25,9 +25,9 @@ router.put('/qas/:id', authorize, qas.update);
 
 router.get('/statistics', statistics.index);
 router.get('/statistics/:id', statistics.retrieve);
-router.post('/statistics', authorize, sections.create);
-router.delete('/statistics/:id', authorize, sections.delete);
-router.put('/statistics/:id', authorize, sections.update);
+router.post('/statistics', authorize, statistics.create);
+router.delete('/statistics/:id', authorize, statistics.delete);
+router.put('/statistics/:id', authorize, statistics.update);
 
 
 // Export the router
