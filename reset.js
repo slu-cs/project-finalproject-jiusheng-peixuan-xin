@@ -22,7 +22,6 @@ const County = new mongoose.Schema({
 });
 */
 const counties = [];
-
 // statistic collection
 /*
 const Statistic = new mongoose.Schema({
@@ -75,6 +74,7 @@ file.on('line', function(line){
   }
 });
 
+// how to run this code after statisics collection created
 for (const s of statistics) {
   counties.push(new County({name: s.county,
     date: s.day[s.day.length - 1],
@@ -87,6 +87,15 @@ for (const s of statistics) {
 file.on('close', function() {
   mongoose.connection.dropDatabase()
     .then(() => Promise.all(statistics.map(statistic => statistic.save())))
+    .then(() => {
+      for (const s of statistics) {
+      counties.push(new County({name: s.county,
+        date: s.day[s.day.length - 1],
+        confirmed: s.confirmed[s.day.length - 1],
+        death: s.death[s.day.length - 1]
+      }));
+    }
+    })
     .then(() => Promise.all(counties.map(county => county.save())))
     .then(() => Promise.all(qas.map(qa => qa.save())))
     .then(() => mongoose.connection.close())
