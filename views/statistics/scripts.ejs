@@ -40,7 +40,7 @@
     statistic.day.push(data.day);
     statistic.confirmed.push(data.confirmed);
     statistic.death.push(data.death);
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic})
       .fail(error => alert(error.responseText));
   });
 </script>
