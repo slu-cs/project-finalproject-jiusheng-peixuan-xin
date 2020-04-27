@@ -20,7 +20,7 @@
        </form>
        <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
-          <%_ if (${("#search").val()}.in(qa.question))-%>
+          <%_ if (${('#search').val()}.in(qa.question))-%>
 
           <h2><%= qa.question -%></h2>
           <p><%= qa.answer -%></p>
@@ -38,13 +38,13 @@
       .fail(error => alert(error.responseText));
   });*/
       // Intercept form submits
-      $('#searchbar').on('submit', function(event) {
+      /*$('#searchbar').on('submit', function(event) {
         event.preventDefault();
          const form = $(this).closest('form');
         // Send the request and display the response on the page
         $.ajax({method: 'get', url: `/qas}`, data: form.serialize()})
           .done(response => $('textarea ').val(JSON.stringify(response)))
           .fail(error => $('textarea').val(JSON.stringify(error)));
-      });
+      });*/
       </script>
   </div>
