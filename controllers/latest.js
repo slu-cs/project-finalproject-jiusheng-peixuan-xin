@@ -1,6 +1,6 @@
 const County = require('../models/county');
 
-// GET /qas
+// GET /qas//hi
 module.exports.index = function(request, response, next) {
   const order = request.query.sort || 'name';
   County.find().sort(order)
