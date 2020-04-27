@@ -1,9 +1,10 @@
 <main class="p-3">
   <h2><%= statistic.county -%></h2>
-  <table class="table">
+  <table id="display" class="table">
     <thead>
       <tr>
-        <th scope="col">Date</th>
+        <th scope="col">
+          <button id="sort" name="button">Date</button></th>
         <th scope="col">Confirmed</th>
         <th scope="col">Death</th>
       </tr>
