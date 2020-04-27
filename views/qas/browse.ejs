@@ -1,25 +1,22 @@
 <div class="container-fluid">
   <div class="col">
     <div class="col-auto p-3 border-right">
-       <h1>Q&A</h1>
+      <h1>Q&A</h1>
 
-       <form id="searchbar">
-     <input type="text" id="search" placeholder="Question">
-
-    <button>Search</button>
-    <h2>Result</h2>
-    <textarea rows="5" cols="85"></textarea>
-    <div ></div>
-   </form>
-
-
+      <form id="searchbar">
+        <input type="text" id="search" placeholder="Question">
+        <button>Search</button>
+        <h2>Result</h2>
+        <textarea rows="5" cols="85"></textarea>
+        <div ></div>
+      </form>
 
       <nav class="nav nav-pills flex-column">
-       <form class="form-inline">
-           <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
-           <button id="create" class="btn btn-primary update">Save</button>
-       </form>
-       <h2>Answerd Question</h2>
+        <form class="form-inline">
+          <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
+          <button id="create" class="btn btn-primary update">Save</button>
+        </form>
+        <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
           <h2><%= qa.question -%></h2>
           <p><%= qa.answer -%></p>
@@ -32,18 +29,18 @@
     <script>
 
       $('#searchbar').on('submit', function(event) {
-            event.preventDefault();
-            // Construct a request object
-            const keyword = $('#search').val();
+        event.preventDefault();
+        // Construct a request object
+        const keyword = $('#search').val();
 
-            const q = qas.find({"question":keyword});
-            Promise.all(q)
+        const q = qas.find({"question":keyword});
+        Promise.all(q)
 
-              .then(function(results) {
-                console.log(results);
-              });
-            });
-            // Send the request and display the response on the page
+        .then(function(results) {
+          console.log(results);
+        });
+      });
+      // Send the request and display the response on the page
 
-      </script>
+    </script>
   </div>
