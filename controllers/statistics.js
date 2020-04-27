@@ -7,10 +7,10 @@ module.exports.index = function(request, response, next) {
  };
 */
  module.exports.index = function(request, response, next) {
-   const order = request.query.sort || 'course'; // Default to sort by course
+   const order = request.query.sort || 'date'; // Default to sort by course
 
    Statistic.find().sort(order)
-     .then(Statistics => response.render('statistics/index', {statistics: statistics, order: order}))
+     .then(statistics => response.render('statistics/index', {statistics: statistics, order: order}))
      .catch(error => next(error));
  };
 
