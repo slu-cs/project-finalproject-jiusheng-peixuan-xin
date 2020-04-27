@@ -41,7 +41,9 @@
 <%_ } else { -%>
 <script>
   $(document).on('click', '#sort', function(event) {
-    statistic.day.sort();
+    statistic.day.reverse();
+    statistic.confirmed.reverse();
+    statistic.death.reverse();
   });
 </script>
 <%_ } -%>
