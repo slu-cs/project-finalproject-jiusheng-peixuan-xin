@@ -1,9 +1,17 @@
 const Statistic = require('../models/statistic');
-
+/*
 module.exports.index = function(request, response, next) {
   Statistic.distinct('_id')
     .then(statisticIDs => response.redirect(`/statistics/${statisticIDs[0]}`))
     .catch(error => next(error));
+ };
+*/
+ module.exports.index = function(request, response, next) {
+   const order = request.query.sort || 'course'; // Default to sort by course
+
+   Statistic.find().sort(order)
+     .then(Statistics => response.render('statistics/index', {statistics: statistics, order: order}))
+     .catch(error => next(error));
  };
 
 module.exports.retrieve = function(request, response, next) {

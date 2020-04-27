@@ -5,20 +5,12 @@
     <%- include('../navbar', {active: 'statistics'}); -%>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-auto p-3 border-right">
-          <nav class="nav nav-pills flex-column">
-            <%_ for (const id of statisticIDs) { -%>
-              <%_ const status = (id === statistic.id ) ? 'active bg-dark' : 'inactive'; -%>
-              <a href="/statistics/<%= id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
-            <%_ } -%>
-          </nav>
-        </div>
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
-              <%- include('./edit', {statistic: statistic, statisticID: statisticID}); -%>
+              <%- include('./edit', {statistics: statistics}); -%>
             <%_ } else { -%>
-              <%- include('./browse', {statistic: statistic}); -%>
+              <%- include('./browse', {statistics: statistics}); -%>
             <%_ } -%>
               </tbody>
             </table>
@@ -26,6 +18,6 @@
         </div>
       </div>
     </div>
-      <%- include('./scripts', {statistic: statistic}); -%>
+      <%- include('./scripts', {statistics: statistics}); -%>
   </body>
 </html>
