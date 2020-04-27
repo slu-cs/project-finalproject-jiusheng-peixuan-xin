@@ -3,21 +3,18 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Date</th>
+        <th scope="col">
+          <button id="sort" class="btn btn-primary" name="button">Date</button></th>
         <th scope="col">Confirmed</th>
         <th scope="col">Death</th>
       </tr>
     </thead>
     <tbody>
-      <%_ for (const s of statistics) { -%>
-        <%_ if (s.county === statistic.county) { -%>
         <tr>
-          <th scope="row"><%= s.date -%></th>
-          <td><%= s.confirmed -%></td>
-          <td><%= s.death -%></td>
+          <th scope="row"><%= statistic.date -%></th>
+          <td><%= statistic.confirmed -%></td>
+          <td><%= statistic.death -%></td>
         </tr>
-        <%_ } -%>
-      <%_ } -%>
     </tbody>
   </table>
 </main>
