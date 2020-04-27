@@ -8,19 +8,19 @@
 
   // Insert a form
   $(document).on('click','#insert',function(event) {
-		$(this).before($(`
-      <form id="<%= statistic.id -%>">
-        <tbody>
-            <tr>
-              <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="date"></td>
-              <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-              <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
-            </tr>
-        </tbody>
-            <button class="create btn btn-sm btn-primary m-1">Save</button>
-            <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
-      </form>
-		`));
+    $(this).before($(`
+    <form id="<%= statistic.id -%>">
+      <tbody>
+        <tr>
+          <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="date"></td>
+          <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
+          <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+        </tr>
+      </tbody>
+      <button class="create btn btn-sm btn-primary m-1">Save</button>
+      <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
+    </form>
+    `));
   });
 
   // Un-insert a form
@@ -30,30 +30,30 @@
   });
 
   // Create a section
- $(document).on('click', '.create', function(event) {
-   const form = $(this).closest('form');
-   event.preventDefault();
-   const newdata = $("form").serializeArray();
+  $(document).on('click', '.create', function(event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    const newdata = form.serializeArray();
     $.each(newdata, function(i, field){
       statistic.day.push(field.day)
       statistic.confirmed.push(field.confirmed)
       statistic.death.push(field.death)
     });
-   $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic.serialize()})
-     .done(function(id) {
-       form.attr('id', id);
-       form.find('.create').removeClass('create');
-       form.find('.uninsert').removeClass('uninsert');
-     })
-     .fail(error => alert(error.responseText));
- });
-/*
-  // Update a course
-  $(document).on('click', '.create', function(event) {
-    const form = $(this);
-    event.preventDefault();
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic.serialize()})
+    .done(function(id) {
+      form.attr('id', id);
+      form.find('.create').removeClass('create');
+      form.find('.uninsert').removeClass('uninsert');
+    })
     .fail(error => alert(error.responseText));
   });
+  /*
+  // Update a course
+  $(document).on('click', '.create', function(event) {
+  const form = $(this);
+  event.preventDefault();
+  $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
+  .fail(error => alert(error.responseText));
+});
 */
 </script>
