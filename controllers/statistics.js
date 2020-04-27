@@ -2,7 +2,7 @@ const Statistic = require('../models/statistic');
 
 module.exports.index = function(request, response, next) {
   Statistic.distinct('_id')
-    .then(statisticID => response.render(`/statistics/${statisticID[0]}`))
+    .then(statisticID => response.redirect(`/statistics/${statisticID[0]}`))
     .catch(error => next(error));
  };
 
