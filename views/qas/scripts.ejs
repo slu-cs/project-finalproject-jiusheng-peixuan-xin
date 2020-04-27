@@ -18,7 +18,7 @@
   $('#searchbtn').on('submit', function(event) {
         event.preventDefault();
         // Construct a request object
-        const request = `${("#search").val()}`
+        const request = `${("#search").val()}`;
 
     $.ajax({method: 'post', url: '/qas', data: request.serialize()})
           .done(response => $('textarea').val(JSON.stringify(response)))
