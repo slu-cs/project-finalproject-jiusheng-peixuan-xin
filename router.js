@@ -2,7 +2,7 @@
 const express = require('express');
 const qas = require('./controllers/qas');
 const statistics = require('./controllers/statistics');
-const latest = require('.controllers/latest');
+const latest = require('./controllers/latest');
 
 // Create the router
 const router = express.Router();
