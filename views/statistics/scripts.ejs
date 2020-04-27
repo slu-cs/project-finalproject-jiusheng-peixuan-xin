@@ -42,14 +42,14 @@
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: $(<%= statistic -%>)})
       .fail(error => alert(error.responseText));
   });
-</script>
+
 <%_ } else { -%>
 
-<script>
   $(document).on('click', '#sort', function(event) {
     statistic.day.reverse();
     statistic.confirmed.reverse();
     statistic.death.reverse();
   });
-</script>
+
 <%_ } -%>
+</script>
