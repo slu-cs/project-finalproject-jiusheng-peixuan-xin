@@ -9,7 +9,7 @@
   // Insert a form
   $(document).on('click','#insert',function(event) {
 		$(this).before($(`
-      <form id="<%= statistic.id -%>" class="table">
+      <form id="<%= statistic.id -%>">
         <tbody>
             <tr>
               <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="date"></td>
@@ -29,6 +29,19 @@
     event.preventDefault();
   });
 
+  // Create a section
+ $(document).on('click', '.create', function(event) {
+   const form = $(this).closest('form');
+   event.preventDefault();
+   $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
+     .done(function(id) {
+       form.attr('id', id);
+       form.find('.create').removeClass('create').addClass('update');
+       form.find('.uninsert').removeClass('uninsert').addClass('delete');
+     })
+     .fail(error => alert(error.responseText));
+ });
+/*
   // Update a course
   $(document).on('click', '.create', function(event) {
     const form = $(this);
@@ -36,5 +49,5 @@
     $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: form.serialize()})
     .fail(error => alert(error.responseText));
   });
-
+*/
 </script>
