@@ -9,12 +9,14 @@
       </tr>
     </thead>
     <tbody>
-      <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
+      <%_ for (const s of statistics) { -%>
+        <%_ if (s.county === statistic.county) { -%>
         <tr>
-          <th scope="row"><%= statistic.day[i] -%></th>
-          <td><%= statistic.confirmed[i] -%></td>
-          <td><%= statistic.death[i] -%></td>
+          <th scope="row"><%= s.date -%></th>
+          <td><%= s.confirmed -%></td>
+          <td><%= s.death -%></td>
         </tr>
+        <%_ } -%>
       <%_ } -%>
     </tbody>
   </table>

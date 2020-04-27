@@ -18,37 +18,39 @@ const file = readline.createInterface({
 // county collection
 /*
 const County = new mongoose.Schema({
-  name: String
+  name: String,
+  date: String,
+  confirmed: Number,
+  death: Number
 });
+
 */
 const counties = [];
 // statistic collection
 /*
 const Statistic = new mongoose.Schema({
-  _id:String,
   county: String,
-  confirmed: [Number],
-  death: [Number],
-  day: [String]
+  confirmed: Number,
+  death: Number,
+  day: String
 });
 */
 const statistics = [];
 
-const getStatistic = function(arr, info) {
+const getCounty = function(arr, stat) {
   for (let r of arr) {
-    if (Object.is(r._id, info[1])) {
-      r.confirmed.push(info[4]);
-      r.death.push(info[5]);
-      r.day.push(info[0]);
+    if (Object.is(r.name, stat.county)) {
+      r.confirmed = stat.confirmed;
+      r.death = stat.death;
+      r.date = stat.date;
       return arr;
     }
   }
-  arr.push(new Statistic({
-    _id:info[1],
-    county: info[1],
-    confirmed: [info[4]],
-    death: [info[5]],
-    day: [info[0]]})
+  arr.push(new County({
+    name: stat.county,
+    confirmed: stat.confirmed,
+    death: stat.death,
+    date: stat.date
   );
   return arr;
 };
@@ -70,7 +72,13 @@ const qas = [
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
   if (Object.is(info[2], 'New York')) {
-    getStatistic(statistics, info);
+    getData(data, info)
+    statistics.push(new Statistic({
+      county: info[1],
+      confirmed: info[4],
+      death: info[5],
+      date: info[0]
+    }));
   }
 });
 
@@ -81,11 +89,8 @@ file.on('close', function() {
     .then(() => Promise.all(statistics.map(statistic => statistic.save())))
     .then(() => {
       for (const s of statistics) {
-      counties.push(new County({name: s.county,
-        date: s.day[s.day.length - 1],
-        confirmed: s.confirmed[s.day.length - 1],
-        death: s.death[s.day.length - 1]
-      }));
+        getCounty(counties, s);
+      }))
     }
     })
     .then(() => Promise.all(counties.map(county => county.save())))
