@@ -10,9 +10,13 @@
   $('#insert').on('click', function(event) {
 		$(this).before($(`
       <form class="table">
-            <input type="text" name="date" class="form-control form-control mb-1">
-            <input type="text" name="confirmed" class="form-control form-control mb-1">
-            <input type="text" name="death" class="form-control form-control mb-1">
+        <tbody>
+            <tr>
+              <td><input type="text" name="date" class="form-control form-control mb-1"></td>
+              <td><input type="text" name="confirmed" class="form-control form-control mb-1"></td>
+              <td><input type="text" name="death" class="form-control form-control mb-1"></td>
+            </tr>
+        </tbody>
             <button class="create btn btn-sm btn-primary m-1">Save</button>
             <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
       </form>
