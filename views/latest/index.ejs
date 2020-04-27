@@ -8,8 +8,8 @@
         <thead>
           <tr>
             <th class="border-0"><a href="/latest" class="btn <%= (order === 'name') ? 'btn-dark' : 'btn-primary' -%>">County</a></th>
-            <th class="border-0"><a href="/latest?sort=date" class="btn (<%= order === 'date') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
-            <th class="border-0"><a href="/latest?sort=confirmed" class="btn (<%= order === 'confirmed') ? 'btn-dark' : 'btn-primary' -%>">Confirmed</a></th>
+            <th class="border-0"><a href="/latest?sort=date" class="btn <%= (order === 'date') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
+            <th class="border-0"><a href="/latest?sort=confirmed" class="btn <%= (order === 'confirmed') ? 'btn-dark' : 'btn-primary' -%>">Confirmed</a></th>
             <th class="border-0"><a href="/latest?sort=death" class="btn <%= (order === 'death') ? 'btn-dark' : 'btn-primary' -%>">Death</a></th>
           </tr>
         </thead>
