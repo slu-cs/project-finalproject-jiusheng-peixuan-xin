@@ -9,12 +9,12 @@
   // Insert a form
   $(document).on('click','#insert',function(event) {
     $(this).before($(`
-    <form id="<%= statistic.id -%>">
+    <form id="<%= statistic.id -%>" class="form-inline">
       <tbody>
         <tr>
-          <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></td>
-          <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-          <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+          <td><input type="text" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day" class="form-control form-control-sm m-1"></td>
+          <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed" class="form-control form-control-sm m-1"></td>
+          <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death" class="form-control form-control-sm m-1"></td>
         </tr>
       </tbody>
       <button class="create btn btn-sm btn-primary m-1">Save</button>
