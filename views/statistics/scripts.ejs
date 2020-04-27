@@ -41,11 +41,9 @@
   });
 
 <%_ } else { -%>
-
   $(document).on('click', '#sort', function(event) {
     const tbody = $('#display tbody');
     tbody.html($('tr',tbody).get().reverse())
   });
-
 <%_ } -%>
 </script>
