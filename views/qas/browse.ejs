@@ -38,8 +38,8 @@
         };
         // Send the request and display the response on the page
         $.ajax(request)
-          .done(response => $('#searchresult').val(JSON.stringify(response)))
-          .fail(error => $('#searchresult').val(JSON.stringify(error)));
+          .done(response => $('searchresult').val(JSON.stringify(response)))
+          .fail(error => $('searchresult').val(JSON.stringify(error)));
       });
       </script>
   </div>
