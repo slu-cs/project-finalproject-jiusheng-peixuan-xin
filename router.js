@@ -2,6 +2,7 @@
 const express = require('express');
 const qas = require('./controllers/qas');
 const statistics = require('./controllers/statistics');
+const latest = require('.controllers/latest');
 
 // Create the router
 const router = express.Router();
@@ -28,6 +29,9 @@ router.get('/statistics/:id', statistics.retrieve);
 router.post('/statistics', authorize, statistics.create);
 router.delete('/statistics/:id', authorize, statistics.delete);
 router.put('/statistics/:id', authorize, statistics.update);
+
+router.get('/latest', latest.index);
+
 
 
 

@@ -82,16 +82,23 @@ const qas = [
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
   if (Object.is(info[2], 'New York')) {
-    getCounty(counties, info[1]);
     getStatistic(statistics, info);
   }
 });
 
+for (const s of statistics) {
+  counties.push(new County({name: s.county,
+    date: s.day[s.day.length - 1],
+    confirmed: s.confirmed[s.day.length - 1],
+    death: s.death[s.day.length - 1]
+  }))
+}
+
 // End the program when the file closes
 file.on('close', function() {
   mongoose.connection.dropDatabase()
-    .then(() => Promise.all(counties.map(county => county.save())))
     .then(() => Promise.all(statistics.map(statistic => statistic.save())))
+    .then(() => Promise.all(counties.map(county => county.save())))
     .then(() => Promise.all(qas.map(qa => qa.save())))
     .then(() => mongoose.connection.close())
     .then(() => console.log('Database is ready.'))
