@@ -15,15 +15,7 @@
       </form>
 		`));
   });
-  $('#searchbtn').on('submit', function(event) {
-        event.preventDefault();
-        // Construct a request object
-        const request = $("#keyword").val();
 
-    $.ajax({method: 'get', url: '/qas', data: request.serialize()})
-          .done(response => $('textarea').val(JSON.stringify(response)))
-          .fail(error => $('textarea').val(JSON.stringify(error)));
-      });
 
 
   // Un-insert a form
