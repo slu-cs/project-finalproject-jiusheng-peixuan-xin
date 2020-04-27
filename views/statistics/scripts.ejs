@@ -10,8 +10,9 @@
   $('#insert').on('click', function(event) {
 		$(this).before($(`
       <form class="form-inline">
-            <input type="text" name="question" class="form-control form-control mb-1">
-            <input type="text" name="answer" class="form-control form-control mb-1">
+            <input type="text" name="date" class="form-control form-control mb-1">
+            <input type="text" name="confirmed" class="form-control form-control mb-1">
+            <input type="text" name="death" class="form-control form-control mb-1">
             <button class="create btn btn-sm btn-primary m-1">Save</button>
             <button class="uninsert btn btn-sm btn-primary m-1">Delete</button>
       </form>
@@ -28,7 +29,7 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'post', url: '/qas', data: form.serialize()})
+    $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
       .done(function(id) {
         form.attr('id', id);
         form.find('.create').removeClass('create').addClass('update');
@@ -42,7 +43,7 @@
   $(document).on('click', '.update', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
+    $.ajax({method: 'put', url: `//statistics/${form.attr('id')}`, data: form.serialize()})
       .fail(error => alert(error.responseText));
   });
 
@@ -50,7 +51,7 @@
   $(document).on('click', '.delete', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-		$.ajax({method: 'delete', url: `/qas/${form.attr('id')}`})
+		$.ajax({method: 'delete', url: `//statistics/${form.attr('id')}`})
 			.done(() => form.remove())
       .fail(error => alert(error.responseText));
 	});
