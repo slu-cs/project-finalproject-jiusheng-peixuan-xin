@@ -13,9 +13,9 @@
       <table class="table">
         <tbody>
           <tr>
-            <th><input type="text" class="form-cntrol" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
-            <td><input type="text" class="form-cntrol" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-            <td><input type="text" class="form-cntrol" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+            <th><input type="text" class="form-cntrol date" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
+            <td><input type="text" class="form-cntrol confirmed" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
+            <td><input type="text" class="form-cntrol death" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
           </tr>
         </tbody>
       </table>
@@ -36,11 +36,11 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    data = form.serialize();
-    statistic.day.push(data.day);
-    statistic.confirmed.push(data.confirmed);
-    statistic.death.push(data.death);
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic.serialize()})
+
+    statistic.day.push($('.date').val());
+    statistic.confirmed.push($('.confirmed').val());
+    statistic.death.push($('.death').val());
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: statistic})
       .fail(error => alert(error.responseText));
   });
 </script>
