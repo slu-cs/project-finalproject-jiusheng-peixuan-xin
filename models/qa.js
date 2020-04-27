@@ -6,6 +6,6 @@ const Qa = new mongoose.Schema({
   question:String,
   answer:String
 });
-//changes
+Qa.index( { question: "text", answer: "text" } )
 // Export the model
 module.exports = mongoose.model('Qa', Qa);
