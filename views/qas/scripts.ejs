@@ -15,6 +15,17 @@
       </form>
 		`));
   });
+  $('#searchbtn').on('submit', function(event) {
+        event.preventDefault();
+        // Construct a request object
+        const request = `${("#search").val()}`
+
+    $.ajax({method: 'post', url: '/qas', data: request.serialize()})
+          .done(response => $('textarea').val(JSON.stringify(response)))
+          .fail(error => $('textarea').val(JSON.stringify(error)));
+      });
+  });
+
   // Un-insert a form
   $(document).on('click', '.uninsert', function(event) {
     $(this).closest('form').remove();
