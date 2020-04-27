@@ -2,13 +2,14 @@
   <div class="col">
     <div class="col-auto p-3 border-right">
        <h1>Q&A</h1>
+
        <form>
      <input type="text" id="search" placeholder="Question">
 
      <button>Search</button>
    </form>
-   <h1>Result</h1>
-   <textarea rows="5" cols="85"></textarea>
+   <h2>Result</h2>
+   <div id="searchresult" rows="5" cols="85"></div>
 
 
       <nav class="nav nav-pills flex-column">
@@ -34,8 +35,8 @@
         };
         // Send the request and display the response on the page
         $.ajax(request)
-          .done(response => $('textarea').val(JSON.stringify(response)))
-          .fail(error => $('textarea').val(JSON.stringify(error)));
+          .done(response => $('#searchresult').val(JSON.stringify(response)))
+          .fail(error => $('#searchresult').val(JSON.stringify(error)));
       });
       </script>
   </div>
