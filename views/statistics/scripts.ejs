@@ -12,9 +12,9 @@
     <table id="<%= statistic.id -%>" class="table">
       <tbody>
         <tr>
-          <th><input type="text" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
-          <td><input type="text" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
-          <td><input type="text" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
+          <th><input type="text" class="form-cntrol" scope="row" value="<%= statistic.day[statistic.day.length - 1] -%>" name="day"></th>
+          <td><input type="text" class="form-cntrol" value="<%= statistic.confirmed[statistic.day.length - 1] -%>" name="confirmed"></td>
+          <td><input type="text" class="form-cntrol" value="<%= statistic.death[statistic.day.length - 1] -%>" name="death"></td>
         </tr>
       </tbody>
       <button class="create btn btn-sm btn-primary m-1">Save</button>
