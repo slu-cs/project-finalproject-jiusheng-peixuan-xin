@@ -30,14 +30,17 @@
       // Intercept form submits
       $('#searchbar').on('submit', function(event) {
         event.preventDefault();
+         f
+
+
         // Construct a request object
-        const request = {
-          data: $('#search').val()
-        };
+        const request =  $('#search').val();
+
+
         // Send the request and display the response on the page
         $.ajax(request)
           .done(response => $('textarea ').val(JSON.stringify(response)))
           .fail(error => $('textarea').val(JSON.stringify(error)));
-      });
+      });*/
       </script>
   </div>
