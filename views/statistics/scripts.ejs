@@ -36,7 +36,7 @@
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
     event.preventDefault();
-    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: $('.table').serialize()})
+    $.ajax({method: 'put', url: `/statistics/${form.attr('id')}`, data: $('.tbody').serialize()})
       .fail(error => alert(error.responseText));
   });
 
