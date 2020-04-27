@@ -1,6 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-
+<%_ if (admin) { -%>
   // Highlight changes in form inputs
   $(document).on('input', '.form-control', function(event) {
     $(this).addClass('bg-dark text-white');
@@ -38,3 +38,10 @@
       .fail(error => alert(error.responseText));
   });
 </script>
+<%_ } else { -%>
+<script>
+  $(document).on('click', '#sort', function(event) {
+    statistic.day.sort();
+  });
+</script>
+<%_ } -%>
