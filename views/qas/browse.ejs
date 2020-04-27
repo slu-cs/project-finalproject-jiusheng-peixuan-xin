@@ -3,7 +3,7 @@
     <div class="col-auto p-3 border-right">
        <h1>Q&A</h1>
 
-       <form>
+       <form id="searchbar">
      <input type="text" id="search" placeholder="Question">
 
   <button>Search</button>
@@ -28,7 +28,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script>
       // Intercept form submits
-      $('form').on('submit', function(event) {
+      $('#searchbar').on('submit', function(event) {
         event.preventDefault();
         // Construct a request object
         const request = {
