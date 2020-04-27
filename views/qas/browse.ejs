@@ -38,7 +38,7 @@
             // Construct a request object
             const request = $('#search').val();
             // Send the request and display the response on the page
-          $.ajax({method: 'get', url: '/qas'})
+          $.ajax({method: 'get', url: '/qas/search'})
               .done(response => $('textarea').val(JSON.stringify(response)))
               .fail(error => $('textarea').val(JSON.stringify(error)));
           });
