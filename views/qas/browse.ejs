@@ -1,11 +1,21 @@
 <div class="container-fluid">
   <div class="col">
     <div class="col-auto p-3 border-right">
+       <h1>Q&A</h1>
+       <form>
+     <input type="text" id="search" placeholder="Question">
+
+     <button>Search</button>
+   </form>
+   <h1>Result</h1>
+   <textarea rows="5" cols="85"></textarea>
+
+
       <nav class="nav nav-pills flex-column">
         <form>
-          <input type="text" name="question" placeholder="Question" class="form-control form-control-lg font-weight-bold mb-1">
-          <button id="insert" class="btn btn-primary">Submit</button>
-        </form>
+         <input type="text" name="question" placeholder="Question" class="form-control form-control-lg font-weight-bold mb-1">
+         <button id="insert" class="btn btn-primary">Submit</button>
+       </form>
         <%_ for (const qa of qas) { -%>
           <h2><%= qa.question -%></h2>
           <p><%= qa.answer -%></p>
@@ -13,4 +23,19 @@
         </nav>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+      // Intercept form submits
+      $('form').on('submit', function(event) {
+        event.preventDefault();
+        // Construct a request object
+        const request = {
+          data: $('search').val()
+        };
+        // Send the request and display the response on the page
+        $.ajax(request)
+          .done(response => $('textarea').val(JSON.stringify(response)))
+          .fail(error => $('textarea').val(JSON.stringify(error)));
+      });
+      </script>
   </div>
