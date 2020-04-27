@@ -29,12 +29,23 @@
     event.preventDefault();
   });
 
+  $(document).on('click', '.create', function(event) {
+      const form = $(this).closest('form');
+      event.preventDefault();
+      $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
+        .done(function() {
+          form.find('.create').removeClass('create').addClass('update');
+          form.find('.uninsert').removeClass('uninsert').addClass('delete');
+        })
+        .fail(error => alert(error.responseText));
+    });
+/*
   // Update a course
   $(document).on('click', '.create', function(event) {
     const form = $(this);
     event.preventDefault();
-    $.ajax({method: 'post', url: '/statistics/<%= statistic.id -%>', data: form.serialize()})
+    $.ajax({method: 'put', url: '/statistics/<%= statistic.id -%>', data: form.serialize()})
     .fail(error => alert(error.responseText));
   });
-
+*/
 </script>
