@@ -5,20 +5,6 @@ const statistics = require('./controllers/statistics');
 
 // Create the router
 const router = express.Router();
-/*
-// Check for admin status
-const authorize = function(request, response, next) {
-  if (request.session.admin) {
-    next(); // Fulfill the request
-  } else {
-    response.status(401).end();
-  }
-};
-*/
-// Handle qa requests
-
-
-//p2
 
 // Check for admin status
 const authorize = function(request, response, next) {
@@ -32,8 +18,6 @@ const authorize = function(request, response, next) {
 // Handle section requests
 router.get('/qas', qas.index);
 router.get('/qas/:id', qas.retrieve);
-
-//p2
 router.post('/qas', authorize, qas.create);
 router.delete('/qas/:id', authorize, qas.delete);
 router.put('/qas/:id', authorize, qas.update);
@@ -41,6 +25,9 @@ router.put('/qas/:id', authorize, qas.update);
 
 router.get('/statistics', statistics.index);
 router.get('/statistics/:id', statistics.retrieve);
+router.post('/statistics', authorize, sections.create);
+router.delete('/statistics/:id', authorize, sections.delete);
+router.put('/statistics/:id', authorize, sections.update);
 
 
 // Export the router

@@ -1,21 +1,21 @@
 <main class="p-3">
-            <h2><%= statistic.county -%></h2>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="border-0">Date</th>
-                  <th class="border-0">Confirmed</th>
-                  <th class="border-0">Death</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
-                  <tr>
-                    <td><%= statistic.day[i] -%></td>
-                    <td><%= statistic.confirmed[i] -%></td>
-                    <td><%= statistic.death[i] -%></td>
-                  </tr>
-                <%_ } -%>
-              </tbody>
-            </table>
-          </main> 
+  <h2><%= statistic.county -%></h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="border-0">Date</th>
+        <th class="border-0">Confirmed</th>
+        <th class="border-0">Death</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
+        <tr>
+          <td><%= statistic.day[i] -%></td>
+          <td><%= statistic.confirmed[i] -%></td>
+          <td><%= statistic.death[i] -%></td>
+        </tr>
+      <%_ } -%>
+    </tbody>
+  </table>
+</main>

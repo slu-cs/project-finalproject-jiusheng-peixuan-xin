@@ -1,28 +1,22 @@
-<form id="update" class="form">
-  <input type="text" name="title" placeholder="Title" value="<%= qas[0].question -%>" class="form-control form-control-lg font-weight-bold mb-1">
-  <textarea name="description" placeholder="Description" rows="3" class="form-control mb-1"><%= qas[0].answer -%></textarea>
-  <button class="btn btn-primary">Save</button>
-  <button id="delete" class="btn btn-primary">Delete</button>
-</form>
-
-<%_ for (const section of sections) { -%>
-  <form id="<%= section.id -%>" class="form-inline">
-    <select name="course" class="form-control form-control-sm m-1">
-      <%_ for (const course of courseIDs) { -%>
-        <%_ const status = (course === section.course) ? 'selected' : 'unselected'; -%>
-        <option <%= status -%> value="<%= course -%>"><%= course -%></option>
+<main class="p-3">
+  <h2><%= statistic.county -%></h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="border-0">Date</th>
+        <th class="border-0">Confirmed</th>
+        <th class="border-0">Death</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%_ for (let i = 0; i < statistic.day.length; i++) { -%>
+        <tr>
+          <td><%= statistic.day[i] -%></td>
+          <td><%= statistic.confirmed[i] -%></td>
+          <td><%= statistic.death[i] -%></td>
+        </tr>
       <%_ } -%>
-    </select>
-    <select name="day" class="form-control form-control-sm m-1">
-      <%_ for (const day of days) { -%>
-        <%_ const status = (day === section.day) ? 'selected' : 'unselected'; -%>
-        <option <%= status -%> value="<%= day -%>"><%= day -%></option>
-      <%_ } -%>
-    </select>
-    <input type="time" name="time" value="<%= section.time24 -%>" class="form-control form-control-sm m-1">
-    <input type="text" name="instructor" value="<%= section.instructor -%>" class="form-control form-control-sm m-1">
-    <button class="update btn btn-sm btn-primary m-1">Save</button>
-    <button class="delete btn btn-sm btn-primary m-1">Delete</button>
-  </form>
-<%_ } -%>
-<button id="insert" class="btn btn-sm btn-primary m-1">New section</button>
+    </tbody>
+  </table>
+</main>
+<button id="insert" class="btn btn-sm btn-primary m-1">New statistic</button>

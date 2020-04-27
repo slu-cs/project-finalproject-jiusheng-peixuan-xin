@@ -9,7 +9,6 @@ module.exports.index = function(request, response, next) {
 
  module.exports.index = function(request, response, next) {
    const order = request.query.sort || 'day'; // Default to sort by date
-   const day = Statistic.schema.path('day').enumValues;
 
    const queries = [
      Statistic.find().sort(order),
@@ -17,7 +16,7 @@ module.exports.index = function(request, response, next) {
    ];
 
    Promise.all(queries).then(function([statistic, statisticID]) {
-     response.render('statistics/index', {statistic: statistic, order: order, statisticID: statisticID, day: day});
+     response.render('statistics/index', {statistic: statistic, order: order, statisticID: statisticID});
    }).catch(error => next(error));
  };
 
