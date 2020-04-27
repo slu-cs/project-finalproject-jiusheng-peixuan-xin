@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const County = new mongoose.Schema({
   name: String,
   date: String,
-  confirmed: number,
-  death: number
+  confirmed: Number,
+  death: Number
 });
 
 
