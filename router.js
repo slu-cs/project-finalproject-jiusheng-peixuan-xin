@@ -22,7 +22,7 @@ router.post('/qas', authorize, qas.create);
 router.delete('/qas/:id', authorize, qas.delete);
 router.put('/qas/:id', authorize, qas.update);
 
-router.get('/qas', function(request, response, next) {
+router.get('/qas/search', function(request, response, next) {
 const qa =   qas.find({"question":/request/})
 if (!qa) {
   console.log('no question found ');
