@@ -30,5 +30,8 @@ router.delete('/statistics/:id', authorize, statistics.delete);
 router.put('/statistics/:id', authorize, statistics.update);
 
 
+
+
+
 // Export the router
 module.exports = router;
