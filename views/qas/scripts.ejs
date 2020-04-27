@@ -24,7 +24,7 @@
           .done(response => $('textarea').val(JSON.stringify(response)))
           .fail(error => $('textarea').val(JSON.stringify(error)));
       });
-  });
+
 
   // Un-insert a form
   $(document).on('click', '.uninsert', function(event) {
