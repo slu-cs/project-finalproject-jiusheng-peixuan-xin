@@ -29,7 +29,7 @@
     event.preventDefault();
     $.ajax({method: 'post', url: '/qas', data: form.serialize()})
       .done(function(id) {
-        alert("Submitted!");
+        console.log("Submitted!");
       })
       .fail(error => alert(error.responseText));
 	});
