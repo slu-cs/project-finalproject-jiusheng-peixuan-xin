@@ -25,15 +25,7 @@ router.post('/qas', qas.create);
 router.delete('/qas/:id', authorize, qas.delete);
 router.put('/qas/:id', authorize, qas.update);
 
-router.get('/qas', function(request, response, next) {
-const qa =   qas.find({"question":/request/})
-if (!qa) {
-  console.log('no question found ');
-  next(); // Leads to 404
-  }  else {
-    response.send(qa);
-  }
-});
+
 
 
 router.get('/statistics', statistics.index);
