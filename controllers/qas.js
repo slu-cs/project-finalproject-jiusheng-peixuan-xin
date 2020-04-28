@@ -5,11 +5,11 @@ module.exports.index = function(request, response, next) {
   const keyword = request.query.keyword ;
   if(!keyword){
     Qa.find()
-      .then(qas => response.render('qas/index', {qas: qas,}))
+      .then(qas => response.render('qas/index', {qas: qas}))
       .catch(error => next(error));
   }else{
     Qa.find({$text: { $search: keyword } })
-      .then(qas => response.render('qas/index', {qas: qas,}))
+      .then(qas => response.render('qas/index', {qas: qas}))
       .catch(error => next(error));
   }
 
