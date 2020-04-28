@@ -1,22 +1,19 @@
 <div class="container-fluid">
   <div class="col">
     <div class="col-auto p-3 border-right">
-      <h1>Q&A</h1>
-
+      <h2>Questions & Answers</h2>
       <form action='/qas'>
         <input type="text"  name="keyword" placeholder="Question">
         <button>Search</button>
-
-
-
       </form>
-
+      
+      <form class="form-inline">
+          <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
+          <button class="btn btn-primary create">Save</button>
+      </form>
       <nav class="nav nav-pills flex-column">
-       <form class="form-inline">
-           <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
-           <button class="btn btn-primary create">Save</button>
-       </form>
-       
+
+
        <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
           <%_ if (qa.answer!=null) { -%>
