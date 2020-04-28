@@ -47,5 +47,14 @@
     const tbody = $('#display tbody');
     tbody.html($('tr',tbody).get().reverse())
   });
+
+  $(document).ready(function(){
+  $("#filter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#statistics tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
 <%_ } -%>
 </script>
