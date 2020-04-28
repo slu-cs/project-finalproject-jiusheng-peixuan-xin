@@ -8,7 +8,7 @@
         </form>
 
         <form action='/qas' class="col-md-6" align="right">
-          <input type="text"  name="keyword" placeholder="enter keyword to search answerd question">
+          <input type="text"  name="keyword" placeholder="enter keyword ">
           <button class="pull right">Search</button>
         </form>
 
@@ -18,7 +18,7 @@
         <%_ for (const qa of qas) { -%>
             <h3><%= qa.question -%></h3>
             <p><%= qa.answer -%></p>
-          
+
         <%_ } -%>
 
         </nav>
