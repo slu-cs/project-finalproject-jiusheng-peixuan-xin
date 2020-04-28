@@ -3,17 +3,18 @@
     <div class="col-auto p-3 border-right">
       <h2>Questions & Answers</h2>
 
-
-      <form class="form-inline">
-          <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
-          <button class="btn btn-primary create">Save</button>
-
-          <form action='/qas' class="mr-sm-2">
-            <input type="text"  name="keyword" placeholder="Question">
-            <button>Search</button>
-          </form>
+      <form action='/qas'>
+        <input type="text"  name="keyword" placeholder="Question">
+        <button>Search</button>
       </form>
       <nav class="nav nav-pills flex-column">
+
+      <form>
+          <input type="text" name="question" placeholder="Question"  class="form-control form-control-lg font-weight-bold mb-1">
+          <button class="btn btn-primary create">Save</button>
+      </form>
+
+
 
 
        <h2>Answerd Question</h2>
