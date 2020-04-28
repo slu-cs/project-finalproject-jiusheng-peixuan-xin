@@ -6,7 +6,7 @@
       <form action='/qas'>
         <input type="text"  name="keyword" placeholder="Question">
         <button>Search</button>
-        
+
 
 
       </form>
@@ -18,8 +18,9 @@
        </form>
        <h2>Answerd Question</h2>
         <%_ for (const qa of qas) { -%>
-          <h2><%= qa.question -%></h2>
-          <p><%= qa.answer -%></p>
+          <%_ if (qa.answer!=null) { -%>
+            <h2><%= qa.question -%></h2>
+            <p><%= qa.answer -%></p>
           <%_ } -%>
 
         </nav>
