@@ -3,8 +3,8 @@
     <div class="col-auto p-3 border-right">
       <div class="row">
         <form class="col-md-6">
-            <input type="text" id="search"name="question" placeholder="Ask a Question" [(ngModel)]="visitor_q">
-            <button class="create" [disabled]="visitor_q === ''">Save</button>
+            <input type="text" id="search"name="question" placeholder="Ask a Question">
+            <button class="create" [disabled]="#search === ''">Save</button>
             <span class="success" style="display: none;">Thank's for submitting the form</span>
         </form>
 
