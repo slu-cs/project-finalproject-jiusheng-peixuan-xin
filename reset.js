@@ -73,7 +73,7 @@ const qas = [
 // Asynchronous line-by-line input
 file.on('line', function(line){
   const info = line.split(','); // date, county, state, fips, cases, deaths
-  if (Object.is(info[2], 'New York')) {
+  if (Object.is(info[2], 'New York') && !Object.is(info[1], 'Unknown')) {
     statistics.push(new Statistic({
       county: info[1],
       confirmed: info[4],
