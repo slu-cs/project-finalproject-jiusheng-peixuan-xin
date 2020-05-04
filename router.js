@@ -2,7 +2,7 @@
 const express = require('express');
 const qas = require('./controllers/qas');
 const statistics = require('./controllers/statistics');
-const counties = require('./controllers/latest');
+const counties = require('./controllers/counties');
 
 // Create the router
 const router = express.Router();
@@ -16,7 +16,7 @@ const authorize = function(request, response, next) {
   }
 };
 
-router.get('/latest', counties.index);
+router.get('/counties', counties.index);
 
 // Handle section requests
 router.get('/qas', qas.index);

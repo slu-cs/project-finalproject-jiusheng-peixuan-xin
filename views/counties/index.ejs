@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'counties'}); -%>
+    <main class="p-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="border-0"><a href="/counties" class="btn <%= (order === 'name') ? 'btn-dark' : 'btn-primary' -%>">County</a></th>
+            <th class="border-0"><a href="/counties?sort=date" class="btn <%= (order === 'date') ? 'btn-dark' : 'btn-primary' -%>">Date</a></th>
+            <th class="border-0"><a href="/counties?sort=confirmed" class="btn <%= (order === 'confirmed') ? 'btn-dark' : 'btn-primary' -%>">Confirmed</a></th>
+            <th class="border-0"><a href="/counties?sort=death" class="btn <%= (order === 'death') ? 'btn-dark' : 'btn-primary' -%>">Death</a></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%_ for (const county of counties) { -%>
+            <tr>
+              <td><a href="/statistics/<%= county.name -%>"><%= county.name -%></a></td>
+              <td><%= county.date -%></td>
+              <td><%= county.confirmed -%></td>
+              <td><%= county.death -%></td>
+            </tr>
+          <%_ } -%>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
