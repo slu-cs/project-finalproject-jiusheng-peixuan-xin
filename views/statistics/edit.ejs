@@ -1,9 +1,16 @@
 <main class="p-3">
   <form class="form-inline">
-    <input type="text" class="form-control" name="county">
-    <input type="text" class="form-control" name="date">
-    <input type="text" class="form-control" name="confirmed">
-    <input type="text" class="form-control" name="death">
+    <label class="my-1 mr-2" for="countySelect">County</label>
+    <select name="county" class="form-control form-control-sm m-1" id="countySelect">
+      <%_ for (const statistic of statistics) { -%>
+        <%_ const status = (statistic === statistic.county) ? 'selected' : 'unselected'; -%>
+        <option <%= status -%> value="<%= statistice -%>"><%= statistic -%></option>
+      <%_ } -%>
+    </select>
+    <input type="text" class="form-control form-control-sm m-1" name="county">
+    <input type="text" class="form-control form-control-sm m-1" name="date">
+    <input type="text" class="form-control form-control-sm m-1" name="confirmed">
+    <input type="text" class="form-control form-control-sm m-1" name="death">
     <button class="create btn btn-sm btn-primary m-1">Save</button>
   </form>
   <table class="table">
