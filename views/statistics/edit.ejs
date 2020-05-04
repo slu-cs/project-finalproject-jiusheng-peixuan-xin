@@ -4,7 +4,7 @@
     <select name="county" class="form-control form-control-sm m-1" id="countySelect">
       <%_ for (const statistic of statistics) { -%>
         <%_ const status = (statistic === statistic.county) ? 'selected' : 'unselected'; -%>
-        <option <%= status -%> value="<%= statistice -%>"><%= statistic -%></option>
+        <option <%= status -%> value="<%= statistic -%>"><%= statistic -%></option>
       <%_ } -%>
     </select>
     <input type="text" class="form-control form-control-sm m-1" name="county">
