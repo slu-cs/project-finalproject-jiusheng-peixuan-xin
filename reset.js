@@ -29,6 +29,7 @@ const counties = [];
 // statistic collection
 /*
 const Statistic = new mongoose.Schema({
+  _id: String,
   county: String,
   confirmed: Number,
   death: Number,
@@ -47,6 +48,7 @@ const getCounty = function(arr, stat) {
     }
   }
   arr.push(new County({
+    _id: stat.county,
     name: stat.county,
     confirmed: stat.confirmed,
     death: stat.death,
