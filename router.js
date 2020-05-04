@@ -25,20 +25,11 @@ router.post('/qas', qas.create);
 router.delete('/qas/:id', authorize, qas.delete);
 router.put('/qas/:id', authorize, qas.update);
 
-
-
-
 router.get('/statistics', statistics.index);
 router.get('/statistics/:id', statistics.retrieve);
 router.post('/statistics', authorize, statistics.create);
 router.delete('/statistics/:id', authorize, statistics.delete);
 router.put('/statistics/:id', authorize, statistics.update);
-
-
-
-
-
-
 
 // Export the router
 module.exports = router;

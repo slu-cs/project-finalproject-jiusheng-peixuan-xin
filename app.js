@@ -40,7 +40,7 @@ app.use(function(request, response, next) {
 
 // Redirect from the home page
 app.get('/', function(request, response) {
-  response.redirect('/latest');
+  response.redirect('/counties');
 });
 
 // Enter admin mode and return to the previous page
