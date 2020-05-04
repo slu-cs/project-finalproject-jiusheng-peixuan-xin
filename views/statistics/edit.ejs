@@ -1,6 +1,18 @@
 <main class="p-3">
   <table class="table">
-    <button id="insert" class="btn btn-sm btn-primary m-1">New statistic</button>
+    <form class="form-inline">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row"><input type="text" class="form-control county" name="county"></td></th>
+            <td><input type="text" class="form-control date" name="date"></td>
+            <td><input type="text" class="form-control confirmed" name="confirmed"></td>
+            <td><input type="text" class="form-control death" name="death"></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="create btn btn-sm btn-primary m-1">Save</button>
+    </form>
     <thead>
       <tr>
         <th scope="col">County</th>
