@@ -14,7 +14,6 @@
       .done(function(id) {
         form.attr('id', id);
         form.find('.create').removeClass('create').addClass('update');
-        form.find('.uninsert').removeClass('uninsert').addClass('delete');
         form.find('.form-control').removeClass('bg-dark text-white');
       })
       .fail(error => alert(error.responseText));

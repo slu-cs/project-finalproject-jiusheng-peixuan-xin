@@ -2,14 +2,17 @@
   <form class="form-inline">
     <label class="my-1 mr-2" for="countySelect">County</label>
     <select name="county" class="form-control form-control-sm m-1" id="countySelect">
-      <%_ for (const statistic of statistics) { -%>
+      <%_ for (const statistic of statistics  ) { -%>
         <%_ const status = (statistic === statistic.county) ? 'selected' : 'unselected'; -%>
         <option <%= status -%> value="<%= statistic -%>"><%= statistic.county -%></option>
       <%_ } -%>
     </select>
-    <input type="text" class="form-control form-control-sm m-1" name="date">
-    <input type="text" class="form-control form-control-sm m-1" name="confirmed">
-    <input type="text" class="form-control form-control-sm m-1" name="death">
+    <label class="my-1 mr-2" for="dateinput">Date</label>
+    <input type="text" class="form-control form-control-sm m-1" name="date" id="dateinput">
+    <label class="my-1 mr-2" for="confirmedinput">Confirmed</label>
+    <input type="text" class="form-control form-control-sm m-1" name="confirmed" id="confirmedinput">
+    <label class="my-1 mr-2" for="deathinput">Death</label>
+    <input type="text" class="form-control form-control-sm m-1" name="death" id="deathinput">
     <button class="create btn btn-sm btn-primary m-1">Save</button>
   </form>
   <table class="table">
