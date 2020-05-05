@@ -2,7 +2,7 @@
   <form class="form-inline">
     <label class="my-1 mr-2" for="countySelect">County</label>
     <select name="county" class="form-control form-control-sm m-1" id="countySelect">
-      <%_ for (const statistic of statistics  ) { -%>
+      <%_ for (const statistic of statistics) { -%>
         <%_ const status = (statistic === statistic.county) ? 'selected' : 'unselected'; -%>
         <option <%= status -%> value="<%= statistic.county -%>"><%= statistic.county -%></option>
       <%_ } -%>

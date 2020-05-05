@@ -9,15 +9,23 @@
   // Create a new statistic
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
+    const opt = $(this).closest('option')
     event.preventDefault();
     $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
       .done(function(id) {
         form.attr('id', id);
-        form.find('.create').removeClass('create').addClass('update');
-        form.find('.form-control').removeClass('bg-dark text-white');
       })
       .fail(error => alert(error.responseText));
+
+      $.ajax({method: 'put', url: '/counties/${opt.attr('value')', data: form.serialize()})
+        .done(function(id) {
+          form.attr('id', id);
+          form.find('.form-control').removeClass('bg-dark text-white');
+        })
+        .fail(error => alert(error.responseText));
+  	});
 	});
+
 <%_ } else { -%>
 
   $(document).on('click', '#sort', function(event) {
