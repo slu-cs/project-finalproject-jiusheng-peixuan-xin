@@ -17,6 +17,7 @@ const authorize = function(request, response, next) {
 };
 
 router.get('/counties', counties.index);
+router.put('/counties/:id', authorize, counties.update);
 
 // Handle section requests
 router.get('/qas', qas.index);

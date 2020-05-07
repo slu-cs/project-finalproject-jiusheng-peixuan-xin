@@ -7,3 +7,10 @@ module.exports.index = function(request, response, next) {
     .then(counties => response.render('counties/index', {counties: counties, order: order}))
     .catch(error => next(error));
  };
+
+ // PUT /qas/:id (with the changes in the request body)
+ module.exports.update = function(request, response, next) {
+   County.findByIdAndUpdate(request.params.id, request.body)
+     .then(county => county ? response.status(200).end() : next())
+     .catch(error => next(error));
+ };
