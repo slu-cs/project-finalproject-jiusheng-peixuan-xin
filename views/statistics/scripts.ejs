@@ -9,11 +9,12 @@
   // Create a new statistic
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
-    const opt = $(this).closest('option')
+
     event.preventDefault();
     $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
       .done(function() {
-        $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: opt.serialize()})
+        const opt = $(this).closest('option')
+        $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: form.serialize()})
           .done(function(value) {
             opt.attr('value', value);
           })
