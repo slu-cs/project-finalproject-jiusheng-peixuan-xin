@@ -13,21 +13,21 @@
       event.preventDefault();
       const current_county = stats.find(s => s.county == $('option').val());
       const check = current_county.find(c => c.date > $('dateinput').val());
-      if check {
-        alert("Invalid date");
-      } else {
-
+      if (check) {
+        alert("Invalid date")
+      } esle {
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
-        .done(function() {
+          .done(function() {
           const opt = $('option');
-          $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: form.serialize()})
-          .done(function(value) {
-            opt.attr('value', value);
-            location.reload();
-          })
+            $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: form.serialize()})
+              .done(function(value) {
+                opt.attr('value', value);
+                location.reload();
+              })
         })
         .fail(error => alert(error.responseText));
       }
+
     });
 
     // remove duplication
