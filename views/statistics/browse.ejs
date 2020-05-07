@@ -17,7 +17,7 @@
         <tr>
           <th scope="row"><%= statistic.county -%></th>
           <%_ const current_date = statistic.date -%>
-          <%_ const formatted_date = current_date.getFullYear() + "-" + (current_date.getMonth() + 1) + "-" + current_date.getDate() -%>
+          <%_ const formatted_date = current_date.getFullYear() + "-" + (current_date.getUTCMonth() + 1) + "-" + current_date.getUTCDate() -%>
           <td><%= formatted_date -%></td>
           <td><%= statistic.confirmed -%></td>
           <td><%= statistic.death -%></td>
