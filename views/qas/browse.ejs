@@ -15,13 +15,18 @@
 
       </div>
       <nav class="nav nav-pills flex-column">
-
+        <div class="row">
         <%_ for (const qa of qas) { -%>
           <%_ if (qa.answer!=null) { -%>
-            <h3><%= qa.question -%></h3>
-            <p><%= qa.answer -%></p>
+
+                <div class="card" style="width: 25rem;">
+                  <h3><%= qa.question -%></h3>
+                  <p><%= qa.answer -%></p>
+
+              </div>
           <%_ } -%>
         <%_ } -%>
+        </div>
 
         </nav>
       </div>
