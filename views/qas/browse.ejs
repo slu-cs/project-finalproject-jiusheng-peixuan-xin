@@ -4,7 +4,7 @@
       <div class="row" style="margin-bottom: 10px;">
         <form class="col-md-6">
             <input class="form-control" type="text" id="search"name="question" placeholder="Ask a Question">
-            <button class="create" [disabled]="#search === ''">Save</button>
+            <button class="create text-center" [disabled]="#search === ''">Save</button>
             <span class="success" style="display: none;">Question submitted!</span>
         </form>
         <form action='/qas' class="col-md-6" align="right">
@@ -18,7 +18,7 @@
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer!=null) { -%>
                 <div class="col-sm-6">
-                  <div class="card">
+                  <div class="card text-center">
                     <h5 class="card-title"><%= qa.question -%></h5>
                     <p class="card-text"><%= qa.answer -%></p>
                   </div>
