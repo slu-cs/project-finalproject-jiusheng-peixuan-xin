@@ -16,10 +16,9 @@
 		`));
   });
   $(document).ready(function(){
-  $("#fsearch").on("keyup", function() {
+  $("#search").on("keyup", function() {
     var value = $(this).val().toLowerCase();
-    $("nav").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    $(this).closest('nav').console.log("Result for Keyword :"+value);
     });
   });
 });
