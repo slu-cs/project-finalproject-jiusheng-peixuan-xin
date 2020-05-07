@@ -17,7 +17,9 @@
           <%_ for (const county of counties) { -%>
             <tr>
               <td><%= county.name -%></td>
-              <td><%= county.date -%></td>
+              <%_ const current_date = county.date -%>
+              <%_ const formatted_date = current_date.getFullYear() + "-" + (current_date.getMonth() + 1) + "-" + current_date.getDate() -%>
+              <td><%= formatted_date -%></td>
               <td><%= county.confirmed -%></td>
               <td><%= county.death -%></td>
             </tr>
