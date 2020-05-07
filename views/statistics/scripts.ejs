@@ -14,7 +14,8 @@
       const value = $('option').val();
       const date = $('#dateinput').val();
       const current_county = stat.find(s => s.county == value);
-      if (current_county.find(s => s.date > date)) {
+      const cond = current_county.find(s => s.date > date);
+      if (cond) {
         alert("Invalid date");
       } else {
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
