@@ -15,19 +15,20 @@
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer!=null) { -%>
                 <div class="col-sm-6">
-                  <div class="card text-center">
+                  <div class="card">
                     <h5 class="card-title"><%= qa.question -%></h5>
                     <p class="card-text"><%= qa.answer -%></p>
                   </div>
                 </div>
               <%_ } -%>
         <%_ } -%>
-        <div class="col-md-6">
-            <div class="card text-center">
-              <input type="text" id="search"name="question" placeholder="Ask a Question">
-              <button class="create" [disabled]="#search === ''">Save</button>
-              <span class="success" style="display: none;">Question submitted!</span>
-        </div>
+          <div class="card">
+            <form class="col-md-6">
+                <input type="text" id="search"name="question" placeholder="Ask a Question">
+                <button class="create" [disabled]="#search === ''">Save</button>
+                <span class="success" style="display: none;">Question submitted!</span>
+            </form>
+          </div>
         </div>
         </nav>
       </div>
