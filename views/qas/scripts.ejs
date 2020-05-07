@@ -17,6 +17,14 @@
   });
 
 
+  $(document).on('click',"#search", function(event) {
+    const form = $(this).closest('form');
+    event.preventDefault();
+    console.log('hi');
+    var value = form.find('input').val().toLowerCase();
+
+    $("#seachresult").html(`<p> Search Result for keyword ${value }</p> `);
+      });
 
 
 
