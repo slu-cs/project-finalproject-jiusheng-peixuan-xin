@@ -29,7 +29,9 @@
         <form id="<%= statistic.id -%>">
         <tr>
           <th scope="row"><%= statistic.county -%></th>
-          <td><%= statistic.date -%></td>
+          <%_ const current_date = statistic.date -%>
+          <%_ const formatted_date = current_date.getFullYear() + "-" + (current_date.getMonth() + 1) + "-" + current_date.getDate() -%>
+          <td><%= formatted_date -%></td>
           <td><%= statistic.confirmed -%></td>
           <td><%= statistic.death -%></td>
         </tr>
