@@ -3,12 +3,12 @@
     <div class="col-auto p-3 border-right">
       <div class="row" style="margin-bottom: 10px;">
 
-        <form class="col-md-6 text-center">
+        <form class="col-md-6">
             <input class="form-control" type="text" id="search"name="question" placeholder="Ask a Question">
             <button class="create"  [disabled]="#search === ''">Save</button>
             <span class="success" style="display: none;">Question submitted!</span>
         </form>
-        <form action='/qas' class="col-md-6" align="right">
+        <form action='/qas' class="col-md-6">
           <input type="text" class="form-control" name="keyword" placeholder=" keyword ">
           <button id="search">Search</button>
           <nav></nav>
