@@ -9,6 +9,7 @@
     // Create a new statistic
     $(document).on('click', '.create', function(event) {
       const form = $(this).closest('form');
+      const stat = <%- JSON.stringify(statistics) %>;
       event.preventDefault();
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
           .done(function() {
