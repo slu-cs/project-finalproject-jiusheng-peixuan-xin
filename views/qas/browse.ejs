@@ -10,7 +10,7 @@
         <form action='/qas' class="col-md-6">
           <input type="text" class="form-control" name="keyword" value="<%=keyword-%>" placeholder=" search by keyword ">
           <button class=" btn btn-primary" id="searchbtn">Search</button>
-          <button class=" btn btn-primary"  id="allq">see all Question</button>
+        <a href="/qas"   ><button class=" btn btn-primary"  id="allq">see all Question</button></a>
           <div id="seachresult">
           </div>
 
@@ -23,7 +23,7 @@
               <div >
                 <h4>Search Result for keyword : <%=keyword-%></h4>
               </div>
-              
+
           <%_ } -%>
 
           <%_ for (const qa of qas) { -%>
