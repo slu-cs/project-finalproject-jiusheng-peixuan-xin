@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const County = new mongoose.Schema({
-  _id: {type:String, required: true},
-  name: {type:String, maxlength:50},
-  date: {type:String,maxlength: 12, match: /\d\d\d\d-\d\d-\d\d/,trim: true},
-  confirmed: {type:Number, maxlength: 12, trim: true},
-  death: {type:Number, maxlength: 12, trim: true}
+  _id: {type:String, required: true, maxlength: 100},
+  name: {type:String, required: true, maxlength:100, trim:false},
+  date: {type:Date,required: true},
+  confirmed: {type:Number,required: true, maxlength:11},
+  death: {type:Number,required: true, maxlength:11}
 });
 
 

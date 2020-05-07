@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Qa = new mongoose.Schema({
-  question:{type:String, maxlength: 1000},
-  answer:{type:String, maxlength: 1000}
+  question:{type:String, required: true, maxlength: 1000, trim:false},
+  answer:{type:String, maxlength: 1000, trim:false}
 });
 
 Qa.index( { question: "text", answer: "text" } )
