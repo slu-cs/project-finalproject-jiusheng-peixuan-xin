@@ -6,7 +6,7 @@ const Statistic = new mongoose.Schema({
   county: {type:String, required: true, maxlength: 50, trim: false},
   confirmed: {type:Number, required: true,maxlength: 12},
   death: {type:Number, required: true,maxlength: 12},
-  date: {type:Date,required: true}
+  date: {type:Date,match: /\d\d\d\d-(\d|\d\d)-(\d\d|\d)/,required: true}
 });
 
 
