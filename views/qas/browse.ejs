@@ -18,9 +18,12 @@
       </div>
         <nav class="nav nav-pills flex-column">
           <div class="row">
-            <%=keyword-%>
+
 
           <%_ for (const qa of qas) { -%>
+            <%_ if (keyword!=null) { -%>
+              <h5 >Search Result for keyword : <%=keyword-%></h5>
+              <%_ } -%>
             <%_ if (qa.answer!=null) { -%>
                 <div class="col-sm-6">
                   <div class="card">
