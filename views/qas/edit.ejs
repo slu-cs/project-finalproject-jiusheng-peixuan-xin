@@ -1,3 +1,5 @@
+<button id="insert" class="btn btn-primary create">Add a New Question</button>
+<h3> Unanswered Questions</h3>
 <%_ for (const qa of qas) { -%>
   <%_ if (!qa.answer) { -%>
     <form id="<%= qa.id -%>" style="margin-bottom: 10px;">
@@ -8,6 +10,7 @@
     </form>
     <%_ } -%>
 <%_ } -%>
+<h3> Answered Questions</h3>
 <%_ for (const qa of qas) { -%>
   <%_ if (qa.answer) { -%>
     <form id="<%= qa.id -%>" style="margin-bottom: 10px;">
@@ -18,5 +21,3 @@
     </form>
     <%_ } -%>
 <%_ } -%>
-
-<button id="insert" class="btn btn-primary create">Add</button>
