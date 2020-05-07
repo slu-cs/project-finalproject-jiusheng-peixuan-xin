@@ -11,6 +11,7 @@
       const form = $(this).closest('form');
       const stat = <%- JSON.stringify(statistics) %>;
       event.preventDefault();
+      const current_county = stat.find(s => s.county == $('option').eval());
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
           .done(function() {
           const opt = $('option');
