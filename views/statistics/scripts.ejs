@@ -22,6 +22,19 @@
       .fail(error => alert(error.responseText));
   	});
 
+    // remove du
+    $(document).ready(function(){
+    let a = new Array();
+    $("#county").children("option").each(function(x){
+        test = false;
+        b = a[x] = $(this).val();
+        for (i=0;i<a.length-1;i++){
+            if (b ==a[i]) test =true;
+        }
+        if (test) $(this).remove();
+    })
+});
+
 <%_ } else { -%>
 
   $(document).on('click', '#sort', function(event) {
