@@ -8,7 +8,7 @@
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
-              <%- include('./edit', {statistics: statistics}); -%>
+              <%- include('./edit', {statistics: statistics}, {counties: counties}); -%>
             <%_ } else { -%>
               <%- include('./browse', {statistics: statistics}); -%>
             <%_ } -%>
