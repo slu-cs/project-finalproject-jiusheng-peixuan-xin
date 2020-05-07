@@ -12,7 +12,7 @@
     event.preventDefault();
     $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
       .done(function() {
-        const opt = $('option')
+        const opt = $('option');
         $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: form.serialize()})
           .done(function(value) {
             opt.attr('value', value);
