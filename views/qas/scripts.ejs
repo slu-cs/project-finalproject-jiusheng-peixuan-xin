@@ -24,8 +24,8 @@
     var value = form.find('input').val().toLowerCase();
 
     $("#seachresult").html(`<p> Search Result for keyword ${value }</p> `);
-    const chooser = $(`<button class="col-1 btn btn-primary"  id="allq">see all Question</button>`);
-    $("#seachresult").html(chooser);
+    const chooser = $(`<button class=" btn btn-primary"  id="allq">see all Question</button>`);
+    $("#seachresult").append(chooser);
       });
 
   $(document).on('click',"#allq", function(event) {
