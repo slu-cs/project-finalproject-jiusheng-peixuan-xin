@@ -22,7 +22,7 @@
     console.log('hi');
     var value = $(this).val().toLowerCase();
 
-    $(this).closest('#seachresult').append("Result for Keyword :"+value);
+    $(this).closest('#seachresult').append(`<p>Result for Keyword :${value }</p> `);
     });
 
 
