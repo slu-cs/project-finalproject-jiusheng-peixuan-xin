@@ -26,13 +26,9 @@
     $("#seachresult").html(`<p> Search Result for keyword ${value }</p> `);
     const chooser = $(`<button class=" btn btn-primary"  id="allq">see all Question</button>`);
     $("#seachresult").append(chooser);
-    $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
-      .done(function() {
-        location.reload();
-      })
-      .fail(error => alert(error.responseText));
+  
   });
-      
+
   $(document).on('click',"#allq", function(event) {
       const form = $(this).closest('form');
       event.preventDefault();
