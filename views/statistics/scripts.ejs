@@ -9,15 +9,8 @@
     // Create a new statistic
     $(document).on('click', '.create', function(event) {
       const form = $(this).closest('form');
-      const stat = <%- JSON.stringify(statistics) %>;
       event.preventDefault();
-      const value = $('option').val();
-      const date = $('#dateinput').val();
-      const current_county = stat.find(s => s.county == value);
-      const cond = current_county.find(s => s.date > date);
-      if (cond) {
-        alert("Invalid date");
-      } else {
+
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
           .done(function() {
           const opt = $('option');
@@ -28,7 +21,6 @@
               })
         })
         .fail(error => alert(error.responseText));
-      }
     });
 
     // remove duplication
