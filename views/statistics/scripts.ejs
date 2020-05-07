@@ -9,33 +9,19 @@
   // Create a new statistic
   $(document).on('click', '.create', function(event) {
     const form = $(this).closest('form');
-
     event.preventDefault();
     $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
       .done(function() {
-        const opt = $('option')
+        const opt = $('option');
         $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: form.serialize()})
           .done(function(value) {
             opt.attr('value', value);
+            location.reload();
           })
       })
       .fail(error => alert(error.responseText));
   	});
 
-    /*
-    // update county
-    $(document).on('click', '.create', function(event) {
-      const form = $(this).closest('form');
-      const opt = $(this).closest('option')
-      event.preventDefault();
-        $.ajax({method: 'put', url: '/counties/${opt.attr('value')', data: form.serialize()})
-          .done(function(id) {
-            form.attr('id', id);
-            form.find('.form-control').removeClass('bg-dark text-white');
-          })
-          .fail(error => alert(error.responseText));
-    	});
-      */
 <%_ } else { -%>
 
   $(document).on('click', '#sort', function(event) {
