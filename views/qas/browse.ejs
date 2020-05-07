@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="col">
     <div class="col-auto p-3 border-right">
-      <div class="row">
+      <div class="row" style="margin-bottom: 10px;">
         <form class="col-md-6">
             <input type="text" id="search"name="question" placeholder="Ask a Question">
             <button class="create" [disabled]="#search === ''">Save</button>
@@ -14,17 +14,19 @@
         </form>
 
       </div>
-      <nav class="nav nav-pills flex-column">
-        <%_ for (const qa of qas) { -%>
-          <%_ if (qa.answer!=null) { -%>
-              <div class="col-sm-10">
-                <div class="card" style="width: 18rem;">
-                  <h3><%= qa.question -%></h3>
-                  <p><%= qa.answer -%></p>
-
-              </div>
+        <nav class="nav nav-pills flex-column">
+          <div class="row">
+          <%_ for (const qa of qas) { -%>
+            <%_ if (qa.answer!=null) { -%>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <h5 class="card-title"><%= qa.question -%></h5>
+                    <p class="card-text"><%= qa.answer -%></p>
+                  </div>
+                </div>
           <%_ } -%>
         <%_ } -%>
+        </div>
         </nav>
       </div>
     </div>
