@@ -14,7 +14,7 @@
       const current_county = stats.find(s => s.county == $('option').val());
       const check = current_county.find(c => c.date > $('dateinput').val());
       if (check) {
-        alert("Invalid date")
+        alert("Invalid date");
       } esle {
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
           .done(function() {
