@@ -36,17 +36,3 @@ module.exports.create = function(request, response, next) {
     .then(statistic => response.status(201).send(statistic.id))
     .catch(error => next(error));
 };
-
-// DELETE /statistics/:id
-module.exports.delete = function(request, response, next) {
-  Statistic.findByIdAndDelete(request.params.id)
-    .then(statistic => statistic ? response.status(200).end() : next())
-    .catch(error => next(error));
-};
-
-// PUT /statistics/:id (with the changes in the request body)
-module.exports.update = function(request, response, next) {
-  Statistic.findByIdAndUpdate(request.params.id, request.body)
-    .then(statistic => statistic ? response.status(200).end() : next())
-    .catch(error => next(error));
-};
