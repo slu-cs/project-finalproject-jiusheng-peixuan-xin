@@ -38,6 +38,7 @@
       .done(function(id) {
         $('.success').fadeIn(100).show();
         $('.success').fadeOut(2000);
+        location.reload();
       })
       .fail(error => alert(error.responseText));
 	});
@@ -47,6 +48,9 @@
     const form = $(this).closest('form');
     event.preventDefault();
     $.ajax({method: 'put', url: `/qas/${form.attr('id')}`, data: form.serialize()})
+      .done(function() {
+        location.reload();
+      })
       .fail(error => alert(error.responseText));
   });
   // Delete a section
