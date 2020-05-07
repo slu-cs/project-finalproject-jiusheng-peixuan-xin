@@ -9,7 +9,7 @@
             <span class="success" style="display: none;">Question submitted!</span>
         </form>
         <form action='/qas' class="col-md-6">
-          <input type="text" class="form-control" name="keyword" placeholder=" search by keyword ">
+          <input type="text" class="form-control" name="keyword" value="  <%=keyword-%>" placeholder=" search by keyword ">
           <button class=" btn btn-primary" id="search">Search</button>
           <div id="seachresult">
           </div>
@@ -19,6 +19,7 @@
       </div>
         <nav class="nav nav-pills flex-column">
           <div class="row">
+
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer!=null) { -%>
                 <div class="col-sm-6">

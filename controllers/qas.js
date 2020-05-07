@@ -9,7 +9,7 @@ module.exports.index = function(request, response, next) {
       .catch(error => next(error));
   }else{
     Qa.find({$text: { $search: keyword } })
-      .then(qas => response.render('qas/index', {qas: qas}))
+      .then(qas => response.render('qas/index', {qas: qas,keyword:keyword}))
       .catch(error => next(error));
   }
 
