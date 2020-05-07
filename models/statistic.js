@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 
 // Define the schema
 const Statistic = new mongoose.Schema({
-  county: String,
-  confirmed: Number,
-  death: Number,
-  date: String
+  county: {type:String, maxlength: 50},
+  confirmed: {type:Number, maxlength: 12, trim: true},
+  death: {type:Number, maxlength: 12, trim: true},
+  date: {type:String,maxlength: 12, match: /\d\d\d\d-\d\d-\d\d/,trim: true}
 });
+
 
 module.exports = mongoose.model('Statistic', Statistic);
