@@ -5,12 +5,12 @@
 
         <form class="col-md-6">
             <input class="form-control" type="text" id="search"name="question" placeholder="Ask a Question">
-            <button class="create"  [disabled]="#search === ''">Save</button>
+            <button class="create btn btn-primary"  [disabled]="#search === ''">Save</button>
             <span class="success" style="display: none;">Question submitted!</span>
         </form>
         <form action='/qas' class="col-md-6">
           <input type="text" class="form-control" name="keyword" placeholder=" keyword ">
-          <button id="search">Search</button>
+          <button class=" btn btn-primary" id="search">Search</button>
           <nav></nav>
 
         </form>
