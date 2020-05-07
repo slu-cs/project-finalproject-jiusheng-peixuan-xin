@@ -2,11 +2,6 @@
   <div class="col">
     <div class="col-auto p-3 border-right">
       <div class="row" style="margin-bottom: 10px;">
-        <form class="col-md-6">
-            <input type="text" id="search"name="question" placeholder="Ask a Question">
-            <button class="create" [disabled]="#search === ''">Save</button>
-            <span class="success" style="display: none;">Question submitted!</span>
-        </form>
 
         <form action='/qas' class="col-md-6" align="right">
           <input type="text"  name="keyword" placeholder="enter keyword to search answerd question">
@@ -19,13 +14,19 @@
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer!=null) { -%>
                 <div class="col-sm-6">
-                  <div class="card">
+                  <div class="card text-center">
                     <h5 class="card-title"><%= qa.question -%></h5>
                     <p class="card-text"><%= qa.answer -%></p>
                   </div>
                 </div>
-          <%_ } -%>
+              <%_ } -%>
         <%_ } -%>
+        <div class="col-md-6">
+            <div class="card text-center">
+              <input type="text" id="search"name="question" placeholder="Ask a Question">
+              <button class="create" [disabled]="#search === ''">Save</button>
+              <span class="success" style="display: none;">Question submitted!</span>
+        </div>
         </div>
         </nav>
       </div>
