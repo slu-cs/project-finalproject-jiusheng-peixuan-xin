@@ -17,13 +17,16 @@
   });
 
 
+
   $(document).on('click',"#search", function(event) {
+    const form = $(this).closest('form');
     event.preventDefault();
     console.log('hi');
-    var value = $(this).val().toLowerCase();
+    var value = form.find('input').val().toLowerCase();
 
-    $(this).closest('#seachresult').append(`<p>Result for Keyword :${value }</p> `);
-    });
+    $("#seachresult").append(`<p>Result for Keyword :${value }</p> `);
+      });
+
 
 
 
