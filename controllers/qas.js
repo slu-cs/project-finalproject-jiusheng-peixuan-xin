@@ -20,7 +20,7 @@ module.exports.index = function(request, response, next) {
 // POST /qas (with the new qa in the request body)
 module.exports.create = function(request, response, next) {
   // set undefined for the answer is null
-  Qa.answer=null;
+  
   Qa.create(request.body)
     .then(qa => response.status(201).send(qa.id))
     .catch(error => next(error));
