@@ -38,7 +38,6 @@
       .done(function(id) {
         $('.success').fadeIn(100).show();
         $('.success').fadeOut(2000);
-        location.reload();
       })
       .fail(error => alert(error.responseText));
 	});
