@@ -16,7 +16,8 @@
       <%_ for (const statistic of statistics) { -%>
         <tr>
           <th scope="row"><%= statistic.county -%></th>
-          <td><%= statistic.date -%></td>
+          <%_ let formatted_date = statistic.date.getMonth() + "-" + (current_datetime.getDate() + 1) + "-" + current_datetime.getFullYear() -%>
+          <td><%= formatted_date -%></td>
           <td><%= statistic.confirmed -%></td>
           <td><%= statistic.death -%></td>
         </tr>
