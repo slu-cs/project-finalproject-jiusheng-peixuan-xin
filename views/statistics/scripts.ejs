@@ -12,7 +12,11 @@
       const stat = <%- JSON.stringify(statistics) %>;
       event.preventDefault();
       const value = $('option').val();
+      const date = $('#dateinput').val();
       const current_county = stat.find(s => s.county == value);
+      if (current_county.find(s => s.date > date)) {
+        alert("Invalid date");
+      } else {
         $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
           .done(function() {
           const opt = $('option');
@@ -23,6 +27,7 @@
               })
         })
         .fail(error => alert(error.responseText));
+      }
     });
 
     // remove duplication
