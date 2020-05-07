@@ -1,7 +1,7 @@
 <%_ for (const qa of qas) { -%>
-<form id="<%= qa.id -%>" class="form-inline">
-    <input type="text" name="question" placeholder="Question" value="<%= qa.question -%>" class="form-control form-control-lg font-weight-bold mb-1">
-    <textarea name="answer" placeholder="Answer" rows="3" class="form-control mb-1"><%= qa.answer -%></textarea>
+<form id="<%= qa.id -%>" style="margin-bottom: 10px;">
+    <input type="text" name="question" placeholder="Question" value="<%= qa.question -%>" class="form-control mb-10">
+    <textarea name="answer" placeholder="Answer" rows="3" class="form-control mb-10"><%= qa.answer -%></textarea>
   <button class="btn btn-primary update">Save</button>
   <button class="delete btn btn-primary">Delete</button>
 </form>
