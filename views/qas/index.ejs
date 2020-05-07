@@ -8,9 +8,9 @@
         <div class="col">
           <main class="p-3">
             <%_ if (admin) { -%>
-              <%- include('./edit', {qas: qas}); -%>
+              <%- include('./edit', {qas: qas }); -%>
             <%_ } else { -%>
-              <%- include('./browse', {qas: qas}); -%>
+              <%- include('./browse', {qas: qas,keyword:keyword}); -%>
             <%_ } -%>
           </main>
         </div>

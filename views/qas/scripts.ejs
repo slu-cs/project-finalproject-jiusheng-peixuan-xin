@@ -17,17 +17,6 @@
   });
 
 
-  $(document).on('click',"#search", function(event) {
-    const form = $(this).closest('form');
-    event.preventDefault();
-    console.log('hi');
-    var value = form.find('input').val();
-
-    $("#seachresult").html(`<p> Search Result for keyword ${value }</p> `);
-    const chooser = $(`<button class=" btn btn-primary"  id="allq">see all Question</button>`);
-    $("#seachresult").append(chooser);
-  
-  });
 
   $(document).on('click',"#allq", function(event) {
       const form = $(this).closest('form');
