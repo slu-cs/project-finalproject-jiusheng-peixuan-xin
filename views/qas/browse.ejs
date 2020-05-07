@@ -19,6 +19,12 @@
       </div>
         <nav class="nav nav-pills flex-column">
           <div class="row">
+            <%_ if(keyword){ -%>
+              <div >
+                <h4>Search Result for keyword : <%=keyword-%></h4>
+              </div>
+              
+          <%_ } -%>
 
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer) { -%>
