@@ -80,7 +80,7 @@ file.on('line', function(line){
       county: info[1],
       confirmed: info[4],
       death: info[5],
-      date: info[0]
+      date: new Date(Date.UTC(info[0]))
     }));
   }
 });
