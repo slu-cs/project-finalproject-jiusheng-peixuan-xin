@@ -18,14 +18,6 @@
 
 
 
-  $(document).on('click',"#search", function(event) {
-    const form = $(this).closest('form');
-    event.preventDefault();
-    console.log('hi');
-    var value = form.find('input').val().toLowerCase();
-
-    $("#seachresult").append(`<p>Result for Keyword :${value }</p> `);
-      });
 
 
 
