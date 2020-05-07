@@ -14,17 +14,20 @@
         </form>
 
       </div>
-      <nav class="nav nav-pills flex-column">
-        <%_ for (const qa of qas) { -%>
-          <%_ if (qa.answer!=null) { -%>
-              <div class="col-sm-6">
-                <div class="card">
-                  <h3><%= qa.question -%></h3>
-                  <p><%= qa.answer -%></p>
-
-              </div>
+        <nav class="nav nav-pills flex-column">
+          <div class="row">
+          <%_ for (const qa of qas) { -%>
+            <%_ if (qa.answer!=null) { -%>
+                <div class="col-sm-6">
+                  <div class="card">
+                    <h3><%= qa.question -%></h3>
+                    <p><%= qa.answer -%></p>
+                  </div>
+                </div>
+                <>
           <%_ } -%>
         <%_ } -%>
+        </div>
         </nav>
       </div>
     </div>
