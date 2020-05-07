@@ -18,6 +18,7 @@ const authorize = function(request, response, next) {
 
 router.get('/counties', counties.index);
 router.put('/counties/:id', authorize, counties.update);
+router.get('/counties/:id', counties.retrieve);
 
 // Handle section requests
 router.get('/qas', qas.index);
@@ -29,8 +30,8 @@ router.put('/qas/:id', authorize, qas.update);
 router.get('/statistics', statistics.index);
 router.get('/statistics/:id', statistics.retrieve);
 router.post('/statistics', authorize, statistics.create);
-router.delete('/statistics/:id', authorize, statistics.delete);
-router.put('/statistics/:id', authorize, statistics.update);
+
+
 
 // Export the router
 module.exports = router;
