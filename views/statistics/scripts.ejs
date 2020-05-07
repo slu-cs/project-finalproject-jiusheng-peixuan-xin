@@ -22,17 +22,16 @@
       .fail(error => alert(error.responseText));
   	});
 
-    // remove du
+    // remove duplication
     $(document).ready(function(){
-    let a = new Array();
-    $(".countyselect").children("option").each(function(x){
-        test = false;
-        b = a[x] = $(this).val();
-        for (i=0;i<a.length-1;i++){
-            if (b ==a[i]) test =true;
-        }
-        if (test) $(this).remove();
-    })
+      var code = {};
+      $("select[name='county'] > option").each(function () {
+      if(code[this.text]) {
+          $(this).remove();
+      } else {
+          code[this.text] = this.value;
+      }
+  });
 });
 
 <%_ } else { -%>
