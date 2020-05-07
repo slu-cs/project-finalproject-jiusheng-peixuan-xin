@@ -2,10 +2,9 @@
   <div class="col">
     <div class="col-auto p-3 border-right">
       <div class="row" style="margin-bottom: 10px;">
-        <form class="col-md-6">
+        <form class="col-md-6 text-center">
             <input class="form-control" type="text" id="search"name="question" placeholder="Ask a Question">
             <button class="create" align="center" [disabled]="#search === ''">Save</button>
-
             <span class="success" style="display: none;">Question submitted!</span>
         </form>
         <form action='/qas' class="col-md-6" align="right">
