@@ -14,20 +14,6 @@ module.exports.index = function(request, response, next) {
      .catch(error => next(error));
  };
 
-module.exports.retrieve = function(request, response, next) {
-  const queries = [
-    Statistic.findById(request.params.id),
-    Statistic.distinct('_id')
-  ];
-
-  Promise.all(queries).then(function([statistic, statisticIDs]) {
-    if (statistic) {
-      response.render('statistics/index', {statistic: statistic, statisticIDs: statisticIDs});
-    } else {
-      next();
-    }
-  }).catch(error => next(error));
-};
 
 //p2
 // POST /statistics (with the new statistic in the request body)
