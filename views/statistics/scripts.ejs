@@ -1,54 +1,60 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-<%_ if (admin) { -%>
-  // Highlight changes in form inputs
-  $(document).on('input', '.form-control', function(event) {
-    $(this).addClass('bg-dark text-white');
-  });
+  <%_ if (admin) { -%>
+    // Highlight changes in form inputs
+    $(document).on('input', '.form-control', function(event) {
+      $(this).addClass('bg-dark text-white');
+    });
 
-  // Create a new statistic
-  $(document).on('click', '.create', function(event) {
-    const form = $(this).closest('form');
-    event.preventDefault();
-    $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
+    // Create a new statistic
+    $(document).on('click', '.create', function(event) {
+      const form = $(this).closest('form');
+      event.preventDefault();
+      const current_county = statistics.find(s => s.county == $('option').val())
+      const check = current_county.find(s => s.date > $('.dateinput').val())
+      if (check) {
+        alert("Invalid date");
+      } else {
+      $.ajax({method: 'post', url: '/statistics', data: form.serialize()})
       .done(function() {
         const opt = $('option');
         $.ajax({method: 'put', url: `/counties/${opt.attr('value')}`, data: form.serialize()})
-          .done(function(value) {
-            opt.attr('value', value);
-            location.reload();
-          })
+        .done(function(value) {
+          opt.attr('value', value);
+          location.reload();
+        })
       })
       .fail(error => alert(error.responseText));
-  	});
+      }
+    });
 
     // remove duplication
     $(document).ready(function(){
-      var code = {};
+      const code = {};
       $("select[name='county'] > option").each(function () {
-      if(code[this.text]) {
+        if(code[this.text]) {
           $(this).remove();
-      } else {
+        } else {
           code[this.text] = this.value;
-      }
-  });
-});
-
-<%_ } else { -%>
-
-  $(document).on('click', '#sort', function(event) {
-    const tbody = $('#display tbody');
-    tbody.html($('tr',tbody).get().reverse())
-  });
-
-  // filter
-  $(document).ready(function(){
-  $("#filter").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#statistics tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        }
+      });
     });
-  });
-});
-<%_ } -%>
-</script>
+
+    <%_ } else { -%>
+
+      $(document).on('click', '#sort', function(event) {
+        const tbody = $('#display tbody');
+        tbody.html($('tr',tbody).get().reverse())
+      });
+
+      // filter
+      $(document).ready(function(){
+        $("#filter").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#statistics tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+      <%_ } -%>
+    </script>
