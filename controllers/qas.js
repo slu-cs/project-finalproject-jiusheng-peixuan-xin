@@ -5,11 +5,11 @@ module.exports.index = function(request, response, next) {
   const keyword = request.query.keyword ;
   if(!keyword){
     Qa.find()
-      .then(qas => response.render('qas/index', {qas: qas,keyword:keyword}))
+      .then(qas => response.render('qas/index', {qas: qas}))
       .catch(error => next(error));
   }else{
     Qa.find({$text: { $search: keyword } })
-      .then(qas => response.render('qas/index', {qas: qas,keyword:keyword}))
+      .then(qas => response.render('qas/index', {qas: qas}))
       .catch(error => next(error));
   }
 
@@ -19,6 +19,7 @@ module.exports.index = function(request, response, next) {
 //Phase two
 // POST /qas (with the new qa in the request body)
 module.exports.create = function(request, response, next) {
+  // set undefined for the answer is null
   Qa.create(request.body)
     .then(qa => response.status(201).send(qa.id))
     .catch(error => next(error));
