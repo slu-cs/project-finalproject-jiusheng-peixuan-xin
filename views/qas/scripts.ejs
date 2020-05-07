@@ -24,8 +24,7 @@
       event.preventDefault();
       $.ajax({method: 'get', url: '/qas', data: form.serialize()})
         .done(function(id) {
-          $('.success').fadeIn(100).show();
-          $('.success').fadeOut(2000);
+          
           location.reload();
         })
 
