@@ -31,7 +31,6 @@
     $.ajax({method: 'post', url: '/qas', data: form.serialize()})
       .done(function(id) {
         $('.success').fadeIn(0).show();
-        $('.success').fadeOut(5000);
         location.reload();
       })
       .fail(error => alert(error.responseText));
