@@ -29,9 +29,11 @@
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer) { -%>
                 <div class="col-sm-6">
-                  <div class="card m-20 border border-primary">
-                    <h5 class="card-title"><%= qa.question -%></h5>
-                    <p class="card-text"><%= qa.answer -%></p>
+                  <div class="card w-50">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= qa.question -%></h5>
+                      <p class="card-text"><%= qa.answer -%></p>
+                    </div>
                   </div>
                 </div>
               <%_ } -%>
