@@ -22,10 +22,12 @@
 
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer) { -%>
-                <div class="col-sm-6">
+                <div class="col-sm-6 w-50">
                   <div class="card">
-                    <h5 class="card-title"><%= qa.question -%></h5>
-                    <p class="card-text"><%= qa.answer -%></p>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= qa.question -%></h5>
+                      <p class="card-text"><%= qa.answer -%></p>
+                    </div>
                   </div>
                 </div>
               <%_ } -%>
