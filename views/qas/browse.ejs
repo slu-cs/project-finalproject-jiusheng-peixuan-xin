@@ -10,7 +10,7 @@
         <form action='/qas' class="col-md-6">
           <input type="text" class="form-control" name="keyword" value="<%=keyword-%>" placeholder=" search by keyword ">
           <button class=" btn btn-primary" id="searchbtn">Search</button>
-          <button class=" btn btn-primary"  id="allq">see all Question</button>
+          <a href="/qas" class=" btn btn-primary"  id="allq">see all Question</a>
           <div id="seachresult">
           </div>
 
@@ -19,15 +19,28 @@
       </div>
         <nav class="nav nav-pills flex-column">
           <div class="row">
+            <%_ if(keyword){ -%>
+              <div >
+                <h4>Search Result for keyword : <%=keyword-%></h4>
+              </div>
+
+          <%_ } -%>
 
           <%_ for (const qa of qas) { -%>
             <%_ if (qa.answer) { -%>
+<<<<<<< HEAD
                 <div class="col-sm-6 w-50">
                   <div class="card">
                     <div class="card-body">
                       <h5 class="card-title"><%= qa.question -%></h5>
                       <p class="card-text"><%= qa.answer -%></p>
                     </div>
+=======
+                <div class="col-sm-6">
+                  <div class="card m-20 border border-primary">
+                    <h5 class="card-title"><%= qa.question -%></h5>
+                    <p class="card-text"><%= qa.answer -%></p>
+>>>>>>> cb9a2cc5e937a0eaa83a5897cfd65a97cad66e7e
                   </div>
                 </div>
               <%_ } -%>
