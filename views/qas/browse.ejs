@@ -3,12 +3,12 @@
       <div class="row" style="margin-bottom: 10px;">
 
         <form class="col" style="margin-bottom: 10px;">
-            <input class="form-control" type="text" id="search"name="question" placeholder="Ask a Question">
+            <input class="form-control" type="text" id="search"name="question" placeholder="Ask a Question" style="margin-bottom: 10px;">
             <button class="create btn btn-primary"  [disabled]="#search === ''">Save</button>
             <span class="success" style="display: none;">Question submitted!</span>
         </form>
         <form action='/qas' class="col" style="margin-bottom: 10px;">
-          <input type="text" class="form-control" name="keyword" value="<%=keyword-%>" placeholder=" search by keyword ">
+          <input type="text" class="form-control" name="keyword" value="<%=keyword-%>" placeholder=" search by keyword " style="margin-bottom: 10px;">
           <button class=" btn btn-primary" id="searchbtn">Search</button>
           <a href="/qas" class=" btn btn-primary"  id="allq">see all Question</a>
           <div id="seachresult">
