@@ -27,28 +27,24 @@
           <%_ } -%>
         </div>
       </nav>
-  </div>
-  <div class="row">
-  
-          <%_ for (const qa of qas) { -%>
-            <%_ if (qa.answer) { -%>
+      <div class="row">
 
-                  <div class="card text-center" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title"><%= qa.question -%></h5>
-                      <p class="card-text"><%= qa.answer -%></p>
-                    </div>
-                  </div>
+              <%_ for (const qa of qas) { -%>
+                <%_ if (qa.answer) { -%>
 
-              <%_ } -%>
-        <%_ } -%>
+                      <div class="card text-center" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= qa.question -%></h5>
+                          <p class="card-text"><%= qa.answer -%></p>
+                        </div>
+                      </div>
 
-
-  </div>
+                  <%_ } -%>
+            <%_ } -%>
 
 
-
-
-
+      </div>
 
   </div>
+
+</div>
